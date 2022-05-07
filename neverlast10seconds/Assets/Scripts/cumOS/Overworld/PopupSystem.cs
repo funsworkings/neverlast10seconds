@@ -1,6 +1,9 @@
 using System;
+using System.Collections.Generic;
+using cumOS.Scriptables;
 using cumOS.UIShit;
 using UnityEngine;
+using UnityEngine.Video;
 using Random = UnityEngine.Random;
 
 namespace cumOS.Overworld
@@ -10,6 +13,7 @@ namespace cumOS.Overworld
         // properties
 
         [SerializeField] Popup popupPrefab;
+        [SerializeField] private PopupDatabase _assetDatabase;
         
         private void Update()
         {
@@ -22,7 +26,23 @@ namespace cumOS.Overworld
         void AddPopup(Popup popup)
         {
             popup.transform.position = GetRandomPopupPosition();
+            AttachPopupContent(popup);
+            
             AddWindow(popup);
+        }
+
+        void AttachPopupContent(Popup popup)
+        {
+            if (Random.Range(0, 2) == 0) // Image
+            {
+                var img = _assetDatabase.images[Random.Range(0, _assetDatabase.images.Count)];
+                popup.Initialize(img);
+            }
+            else // Video
+            {
+                var clip = _assetDatabase.clips[Random.Range(0, _assetDatabase.clips.Count)];
+                popup.Initialize(clip);
+            }
         }
 
         Vector2 GetRandomPopupPosition()
