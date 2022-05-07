@@ -83,13 +83,13 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _SinWaveScale: 30
+    - _SinWaveScale: 50
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _VertexOffsetStrength: 1
-    - _VertexSpeed: 20
+    - _VertexOffsetStrength: 2
+    - _VertexSpeed: 4
     - _ZWrite: 1
     - __dirty: 0
     m_Colors:
