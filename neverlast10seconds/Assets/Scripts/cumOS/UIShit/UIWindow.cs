@@ -14,7 +14,7 @@ namespace cumOS.UIShit
 
         public UIWindowManager manager;
 
-        RectTransform _rectTransform;
+        protected RectTransform _rectTransform;
         private Image background;
         public Color color => background.color;
         
