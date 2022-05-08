@@ -869,6 +869,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1989911585002198851, guid: 06845b12939304edcb836b1be51cc799, type: 3}
+      propertyPath: spawnRandomTimeRange.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989911585002198851, guid: 06845b12939304edcb836b1be51cc799, type: 3}
+      propertyPath: spawnRandomTimeRange.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989911585002198851, guid: 06845b12939304edcb836b1be51cc799, type: 3}
       propertyPath: possibleGamesToLoad.Array.size
       value: 1
       objectReference: {fileID: 0}

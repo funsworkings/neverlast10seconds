@@ -17,6 +17,12 @@ namespace cumOS.Overworld
         [SerializeField] private Transform tabsRoot;
         [SerializeField] private BrowserUITab tabPrefab;
         [SerializeField] private BrowserWindow browserWindowPrefab;
+        
+        [Header("Spawning Settings")]
+        public bool spawnBrowserTabs = true;
+        public float spawnTimer;
+        public float spawnTimerTotal;
+        public Vector2 spawnRandomTimeRange = new Vector2(5f, 10f);
 
         [Header("Mini-game loading.")]
         [Tooltip("When the random roll is less than this value, it is a mini-game browser window.")]
@@ -34,6 +40,8 @@ namespace cumOS.Overworld
         {
             if (_window.IsActive)
             {
+                SpawnBrowserWindow();
+                
                 if (Input.GetKeyUp(KeyCode.B))
                 {
                     AddBrowserWindow(Instantiate(browserWindowPrefab, itemsRoot));
@@ -56,6 +64,29 @@ namespace cumOS.Overworld
             tab.transform.SetSiblingIndex(window.transform.GetSiblingIndex()); // Match window
 
             return tab;
+        }
+        
+        void SpawnBrowserWindow()
+        {
+            if (spawnBrowserTabs)
+            {
+                spawnTimer -= Time.deltaTime;
+
+                if (spawnTimer < 0)
+                {
+                    //spawn browser window
+                    AddBrowserWindow(Instantiate(browserWindowPrefab, itemsRoot));
+                    SetRandomSpawnTimer();
+                }
+            }
+        }
+
+        void SetRandomSpawnTimer()
+        {
+            //random total
+            spawnTimerTotal = Random.Range(spawnRandomTimeRange.x, spawnRandomTimeRange.y);
+            //set popup timer
+            spawnTimer = spawnTimerTotal;
         }
 
         /// <summary>

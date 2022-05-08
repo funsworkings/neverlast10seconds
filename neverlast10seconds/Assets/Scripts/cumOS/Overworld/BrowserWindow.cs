@@ -24,7 +24,7 @@ namespace cumOS.Overworld
         }
         
         public Sprite thumbnail;
-        
+
         [Header("Minigame Settings")]
         public bool isMinigame;
         public Scene loadedMinigame;
