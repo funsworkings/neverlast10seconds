@@ -423,13 +423,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1144439822}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.5124, y: -7.19, z: -19.773933}
+  m_LocalRotation: {x: -0.36439028, y: -0, z: -0, w: 0.93124634}
+  m_LocalPosition: {x: 7.5124, y: -7.1900024, z: -19.773933}
   m_LocalScale: {x: 728.25055, y: 1, z: 424.88013}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: -42.74, y: 0, z: 0}
 --- !u!1 &1268132215
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,6 +441,7 @@ GameObject:
   - component: {fileID: 1268132218}
   - component: {fileID: 1268132217}
   - component: {fileID: 1268132216}
+  - component: {fileID: 1268132219}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -507,12 +508,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1268132215}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -4.52}
+  m_LocalPosition: {x: -81.8, y: 69.8, z: -88.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2044119495}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1268132219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268132215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93d83b503b6af1c48b390f43f58be377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  racer: {fileID: 2044119493}
 --- !u!1001 &1326550601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -637,7 +651,7 @@ Rigidbody:
   m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 80
   m_CollisionDetection: 1
 --- !u!114 &2044119493
@@ -653,10 +667,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 60
-  maxAccel: 10
-  maxTurn: 3
+  maxAccel: 0.5
+  maxTurnSpeed: 4
   gravity: 3
-  onGround: 0
+  tapSpeedIncrement: 0.7
+  tapSpeedSlowDown: 5
 --- !u!136 &2044119494
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -679,11 +694,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2044119491}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.2, y: 0, z: -31.12}
+  m_LocalPosition: {x: -81.8, y: 68.8, z: -84.380005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 939699017}
-  - {fileID: 1268132218}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
