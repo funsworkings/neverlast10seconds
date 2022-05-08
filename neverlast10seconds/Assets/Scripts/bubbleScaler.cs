@@ -9,12 +9,16 @@ public class bubbleScaler : MonoBehaviour
 
     SkinnedMeshRenderer mesh;
     CapsuleCollider cCollider;
+
+    private Vector3 scaleCache;
     // Start is called before the first frame update
     void Start()
     {
         mesh = GetComponent<SkinnedMeshRenderer>();
         cCollider = GetComponent<CapsuleCollider>();
         mesh.SetBlendShapeWeight(0, 100);
+        scaleCache = transform.localScale;
+        
     }
 
     // Update is called once per frame
@@ -45,7 +49,9 @@ public class bubbleScaler : MonoBehaviour
         mesh.SetBlendShapeWeight(2, Mathf.Lerp(0, 100, bubbleSize));
 
 
-        bubbleSize = Mathf.PerlinNoise(Time.time, transform.localScale.x * 100);
+        bubbleSize = Mathf.PerlinNoise(Time.time, scaleCache.x * 100);
+
+        transform.localScale = scaleCache * Mathf.Sin(Time.time + transform.position.x);
     }
 
 
