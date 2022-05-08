@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/mini mini games/race game/race game.unity
     guid: 6cb246aac396f6c4fbaa3dc766b60429
+  - enabled: 1
+    path: Assets/Scenes/DonkeySex.unity
+    guid: 3e96a2080ef3f8b40bd61a8737e867ca
   m_configObjects: {}
