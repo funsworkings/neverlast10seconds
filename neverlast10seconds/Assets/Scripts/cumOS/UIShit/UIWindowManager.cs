@@ -27,27 +27,36 @@ namespace cumOS.UIShit
                     windows.Add(window);
                 }
 
-                window.manager = this;
+                window.Bind(this);
             }
             UpdateSiblingIndices();
             
             UIWindow.onSelectWindow += window =>
             {
-                if(selectedWindow != window && selectedWindow != null) selectedWindow.Deactivate();
-                selectedWindow = window;
-                window.Activate();
+                if (window.manager != this) return;
                 
+                if (selectedWindow != window)
+                {
+                    if(selectedWindow != null) selectedWindow.Deactivate();
+                    selectedWindow = window;
+                    window.Activate();
+                }
+
                 BringToFront(window); // Bring window to front
                 window.Drag();
             };
 
             UIWindow.onReleaseWindow += window =>
             {
+                if (window.manager != this) return;
+                
                 window.Release();
             };
 
             UIWindow.onCloseWindow += window =>
             {
+                if (window.manager != this) return;
+                
                 DeactivateWindow(window);
             };
         }
@@ -66,7 +75,7 @@ namespace cumOS.UIShit
             BringToFront(window);
         }
 
-        public void DeactivateWindow(UIWindow window)
+        public virtual void DeactivateWindow(UIWindow window)
         {
             if (window == null) return;
 
@@ -89,7 +98,7 @@ namespace cumOS.UIShit
             if (!windows.Contains(window))
             {
                 windows.Add(window);
-                window.manager = this;
+                window.Bind(this);
 
                 window.transform.parent = itemsRoot;
                 BringToFront(window);
@@ -160,9 +169,13 @@ namespace cumOS.UIShit
         protected void UpdateSiblingIndices()
         {
             int i = 0;
+            int count = windows.Count;
             foreach (UIWindow window in windows)
             {
                 window.transform.SetSiblingIndex(i++);
+                
+                if(i-1 == count-1) window.OnVisible();
+                else window.OnHidden();
             }
         }
         

@@ -16,7 +16,7 @@ namespace cumOS.UIShit
 
         protected RectTransform _rectTransform;
         private Image background;
-        public Color color => background.color;
+        public virtual Color color => background.color;
         
         [SerializeField] private RectTransform headerBar;
         [SerializeField] private Button closeButton;
@@ -39,8 +39,6 @@ namespace cumOS.UIShit
 
         protected virtual void Start()
         {
-            background.color = Random.ColorHSV();
-            
             if (closeButton)
             {
                 closeButton.onClick.AddListener(() =>
@@ -50,6 +48,17 @@ namespace cumOS.UIShit
                      Close();
                 });
             }
+        }
+
+        public virtual void Bind(UIWindowManager manager)
+        {
+            this.manager = manager;
+            SetColor(Random.ColorHSV());
+        }
+
+        public virtual void SetColor(Color color)
+        {
+            background.color = color;
         }
 
         private void Update()
@@ -116,6 +125,9 @@ namespace cumOS.UIShit
         {
             active = false;
         }
+        
+        public virtual void OnVisible(){}
+        public virtual void OnHidden(){}
 
         #endregion
         

@@ -9,5 +9,7 @@ namespace cumOS.Scriptables
     {
         public List<Sprite> images = new List<Sprite>();
         public List<VideoClip> clips = new List<VideoClip>();
+
+        public List<MinigameData> minigames = new List<MinigameData>();
     }
 }

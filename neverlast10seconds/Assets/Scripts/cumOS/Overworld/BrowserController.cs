@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using cumOS.Scriptables;
 using cumOS.UIShit;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,6 +18,7 @@ namespace cumOS.Overworld
         [SerializeField] private Transform tabsRoot;
         [SerializeField] private BrowserUITab tabPrefab;
         [SerializeField] private BrowserWindow browserWindowPrefab;
+        [SerializeField] private PopupDatabase database;
         
         [Header("Spawning Settings")]
         public bool spawnBrowserTabs = true;
@@ -28,12 +30,49 @@ namespace cumOS.Overworld
         [Tooltip("When the random roll is less than this value, it is a mini-game browser window.")]
         public float minigameChance;
         [Tooltip("Array of possible mini-game scenes to load.")]
-        public string[] possibleGameScenesToLoad;
-        public List< RenderTexture>  unusedRenderTextures = new List<RenderTexture>();
-        public List< RenderTexture> usedRendertextures = new List<RenderTexture>();
+        public List<int> availableGameScenes, unavailableGameScenes = new List<int>();
+
+        #region Browser texture
+
+        private RenderTexture _browserWindowTexture;
+        [SerializeField] int _browserTextureHeight = 600, _browserTextureWidth = 800;
+        RenderTexture RequestRenderTexture()
+        {
+            bool flag_create = true;
+            if (_browserWindowTexture != null)
+            {
+                if (_browserWindowTexture.width != _browserTextureWidth || _browserWindowTexture.height != _browserTextureHeight)
+                {
+                    DestroyImmediate(_browserWindowTexture);
+                }
+                else
+                {
+                    flag_create = false;
+                }
+            }
+
+            if (flag_create)
+            {
+                _browserWindowTexture = new RenderTexture(_browserTextureWidth, _browserTextureHeight, 0);
+            }
+
+            return _browserWindowTexture;
+        }
+        
+        #endregion
+        
         private void Awake()
         {
             _window = GetComponent<UIWindow>();
+        }
+
+        private void OnDestroy()
+        {
+            if (_browserWindowTexture != null)
+            {
+                DestroyImmediate(_browserWindowTexture);
+                _browserWindowTexture = null;
+            }
         }
 
         private void Update()
@@ -44,15 +83,41 @@ namespace cumOS.Overworld
                 
                 if (Input.GetKeyUp(KeyCode.B))
                 {
-                    AddBrowserWindow(Instantiate(browserWindowPrefab, itemsRoot));
+                    RandomBrowserWindow();
                 }
             }
         }
 
-        public void AddBrowserWindow(BrowserWindow browserWindow)
+        void RandomBrowserWindow()
         {
+            int gameScene = LoadRandomMinigame();
+            if (gameScene >= 0)
+            {
+                AddBrowserWindow(Instantiate(browserWindowPrefab, itemsRoot), gameScene);
+            }
+        }
+
+        void AddBrowserWindow(BrowserWindow browserWindow, int gameScene)
+        {
+            browserWindow.GameScene = gameScene;
+            browserWindow.Initialize(null);
+                
             AddWindow(browserWindow);
-            MinigameCheck(browserWindow);
+            LoadMinigameForBrowserWindow(browserWindow);
+        }
+
+        public override void DeactivateWindow(UIWindow window)
+        {
+            if (window != null)
+            {
+                var sceneIndex = (window as BrowserWindow).GameScene;
+                if (sceneIndex >= 0)
+                {
+                    availableGameScenes.Add(sceneIndex); // Return to available scenes
+                }
+            }
+            
+            base.DeactivateWindow(window);
         }
 
         public BrowserUITab RequestTab(BrowserWindow window)
@@ -75,7 +140,7 @@ namespace cumOS.Overworld
                 if (spawnTimer < 0)
                 {
                     //spawn browser window
-                    AddBrowserWindow(Instantiate(browserWindowPrefab, itemsRoot));
+                    RandomBrowserWindow();
                     SetRandomSpawnTimer();
                 }
             }
@@ -90,27 +155,44 @@ namespace cumOS.Overworld
         }
 
         /// <summary>
-        /// Checks if this window should be a mini-game. 
-        /// </summary>
-        public void MinigameCheck(BrowserWindow browserWindow)
-        {
-            float randomChance = Random.Range(0f, 100f);
-
-            if (randomChance < minigameChance)
-            {
-                LoadRandomMinigame(browserWindow);
-            }
-        }
-
-        /// <summary>
         /// Loads a random mini-game scene additively. 
         /// </summary>
-        public void LoadRandomMinigame(BrowserWindow browserWindow)
+        int LoadRandomMinigame()
         {
-            string sceneName = possibleGameScenesToLoad[Random.Range(0, possibleGameScenesToLoad.Length)];
-            Scene minigame = SceneManager.GetSceneByName( sceneName);
-            SceneManager.LoadScene(minigame.name, LoadSceneMode.Additive);
-            browserWindow.SetMinigame(minigame);
+            if (availableGameScenes.Count > 0)
+            {
+                int index = Random.Range(0, availableGameScenes.Count);
+                int sc = availableGameScenes[index];
+                availableGameScenes.RemoveAt(index);
+
+                return sc;
+            }
+
+            return -1;
+        }
+
+        public void LoadMinigameForBrowserWindow(BrowserWindow browserWindow)
+        {
+            int minigameIndex = browserWindow.GameScene;
+            
+            Debug.Log($"Trigger minigame load: {minigameIndex}");
+            MinigameLoader.Instance.LoadGame(minigameIndex, scene => 
+            {
+                bool success = AssignRenderTextureToGameScene(scene);
+                if (success)
+                {
+                    browserWindow.Initialize(RequestRenderTexture());
+                }
+                else
+                {
+                    Debug.LogWarning($"Failed to discover main camera in scene: {minigameIndex}");
+                    browserWindow.Initialize(null);
+                }
+            }, () =>
+            {
+                Debug.LogWarning("Failed to load game scene, MISC!");
+                browserWindow.Initialize(null);
+            });
         }
         
         //TODO will need an unload scene function when we close a window. 
@@ -120,10 +202,10 @@ namespace cumOS.Overworld
         /// Assign the first unused render texture to the minigame in the browser window. 
         /// </summary>
         /// <param name="window"></param>
-        public void AssignRenderTextureToMinigame(Scene scene, BrowserWindow window)
+        public bool AssignRenderTextureToGameScene(Scene scene)
         {
             //get the render texture
-            RenderTexture renderToUse = unusedRenderTextures[0];
+            RenderTexture renderToUse = RequestRenderTexture(); // Fetch render texture
             
             //get all objects in the scene we loaded
             GameObject[] minigameObjects = scene.GetRootGameObjects();
@@ -137,22 +219,32 @@ namespace cumOS.Overworld
                     Camera sceneCam = sceneObj.GetComponent<Camera>();
                     //assign the target render texture.
                     sceneCam.targetTexture = renderToUse;
-                    break;
+                    return true;
                 }
             }
-            
-            //assign the render texture to our raw image in the window. 
-            window.AssignRenderTexture(renderToUse);
-            //remove from circulation. 
-            usedRendertextures.Add(renderToUse);
-            unusedRenderTextures.RemoveAt(0);
+
+            return false;
         }
 
-        //Removes render texture from used and adds back to unused. 
-        public void DeactivateRenderTexture(RenderTexture renderTexture)
+        #region Old
+        
+        /*
+         
+         /// <summary>
+        /// Checks if this window should be a mini-game. 
+        /// </summary>
+        public void MinigameCheck(BrowserWindow browserWindow)
         {
-            usedRendertextures.Remove(renderTexture);
-            unusedRenderTextures.Add(renderTexture);
+            float randomChance = Random.Range(0f, 100f);
+
+            if (randomChance < minigameChance)
+            {
+                LoadRandomMinigame(browserWindow);
+            }
         }
+         
+         */
+        
+        #endregion
     }
 }
