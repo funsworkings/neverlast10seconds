@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class bubbleScaler : MonoBehaviour
 {
+    [Range(0, 1)]
     public float bubbleSize = 0.0f;
     SkinnedMeshRenderer mesh;
     // Start is called before the first frame update
