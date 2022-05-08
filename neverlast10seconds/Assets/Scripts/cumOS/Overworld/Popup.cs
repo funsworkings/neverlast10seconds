@@ -68,23 +68,14 @@ namespace cumOS.Overworld
             }
         }
 
-        public override void Activate()
+        public override void SetActive(bool active)
         {
-            base.Activate();
+            base.SetActive(active);
 
             if (_clip != null)
             {
-                _videoPlayer.Play();
-            }
-        }
-
-        public override void Deactivate()
-        {
-            base.Deactivate();
-
-            if (_clip != null)
-            {
-                _videoPlayer.Pause();
+                if(active) _videoPlayer.Play();
+                else _videoPlayer.Pause();
             }
         }
 

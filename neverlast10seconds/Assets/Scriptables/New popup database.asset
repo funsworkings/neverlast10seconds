@@ -59,3 +59,16 @@ MonoBehaviour:
   - {fileID: 32900000, guid: edae46d67d45049ba87fb61ab49218e6, type: 3}
   - {fileID: 32900000, guid: c166f586a78494ba79f1a055fb8efd44, type: 3}
   - {fileID: 32900000, guid: 1671edb7acb034174832e18a805ae02c, type: 3}
+  minigames:
+  - sceneIndex: 1
+    displayWidth: 300
+    displayHeight: 300
+    gameTitle: goblincore
+  - sceneIndex: 2
+    displayWidth: 32
+    displayHeight: 32
+    gameTitle: ~Forehead Smoothing *
+  - sceneIndex: 3
+    displayWidth: 400
+    displayHeight: 300
+    gameTitle: LOVE

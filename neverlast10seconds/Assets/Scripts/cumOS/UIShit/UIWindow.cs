@@ -8,8 +8,6 @@ namespace cumOS.UIShit
 {
     public class UIWindow : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
-        public static System.Action<UIWindow> onSelectWindow, onReleaseWindow, onCloseWindow;
-        
         // Properties
 
         public UIWindowManager manager;
@@ -53,7 +51,12 @@ namespace cumOS.UIShit
         public virtual void Bind(UIWindowManager manager)
         {
             this.manager = manager;
-            SetColor(Random.ColorHSV());
+            SetColor(GetColor());
+        }
+
+        protected virtual Color GetColor()
+        {
+            return Random.ColorHSV();
         }
 
         public virtual void SetColor(Color color)
@@ -61,9 +64,22 @@ namespace cumOS.UIShit
             background.color = color;
         }
 
+        public virtual void SetActive(bool active)
+        {
+            this.active = active;
+        }
+
         private void Update()
         {
-            if (!dragging) return;
+            if (!dragging)
+            {
+                if (active)
+                {
+                    if(Input.GetKeyUp(KeyCode.X)) Close();
+                }
+                
+                return;
+            }
 
             if (Input.GetMouseButtonUp(0))
             {
@@ -96,17 +112,22 @@ namespace cumOS.UIShit
 
         public virtual void Select()
         {
-            onSelectWindow?.Invoke(this);
+            manager.DidSelectWindow(this);
         }
 
         public virtual void Deselect()
         {
-            onReleaseWindow?.Invoke(this);
+            manager.DidReleaseWindow(this);
         }
 
         public virtual void Close()
         {
-            onCloseWindow?.Invoke(this);
+            manager.DidCloseWindow(this);
+        }
+
+        public virtual void Destroy()
+        {
+            manager.DidDestroyWindow(this);
         }
         
         #endregion
@@ -116,16 +137,6 @@ namespace cumOS.UIShit
         public virtual void Show(){}
         public virtual void Hide(){}
 
-        public virtual void Activate()
-        {
-            active = true;
-        }
-
-        public virtual void Deactivate()
-        {
-            active = false;
-        }
-        
         public virtual void OnVisible(){}
         public virtual void OnHidden(){}
 
