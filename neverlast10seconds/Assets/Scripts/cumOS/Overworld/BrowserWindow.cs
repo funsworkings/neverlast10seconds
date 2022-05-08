@@ -54,6 +54,7 @@ namespace cumOS.Overworld
         protected override Color GetColor()
         {
             Color col = Random.ColorHSV(0f, 1f, 0f, 1f, .87f, 1f);
+            col = new Color(col.r, col.g, col.b, .87f);
             return col;
         }
 

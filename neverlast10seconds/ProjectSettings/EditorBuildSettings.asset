@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/ALIENCOMPUTER.unity
-    guid: 2e283a02aaeb746ac8cee1ce16d46c57
+    path: Assets/Scenes/ALIENRECLINING.unity
+    guid: c3e11ce0eea25a044ac0e5bdfc870282
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab

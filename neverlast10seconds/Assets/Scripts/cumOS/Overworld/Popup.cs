@@ -60,6 +60,16 @@ namespace cumOS.Overworld
             else if (_clip != null) Initialize(_clip);
         }
 
+        protected override Color GetColor()
+        {
+            return new Color(1f, 1f, 1f, .67f);
+        }
+
+        public override void SetColor(Color color)
+        {
+            _image.color = _rawImage.color = color;
+        }
+
         public override void Close()
         {
             //play close sound 
