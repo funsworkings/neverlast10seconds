@@ -864,6 +864,42 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: d943b46728fa147de99281c84f68b5c4, type: 3}
+    - target: {fileID: 1989911585002198851, guid: 06845b12939304edcb836b1be51cc799, type: 3}
+      propertyPath: minigameChance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989911585002198851, guid: 06845b12939304edcb836b1be51cc799, type: 3}
+      propertyPath: possibleGamesToLoad.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989911585002198851, guid: 06845b12939304edcb836b1be51cc799, type: 3}
+      propertyPath: unusedRenderTextures.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989911585002198851, guid: 06845b12939304edcb836b1be51cc799, type: 3}
+      propertyPath: unusedRenderTextures.Array.data[0]
+      value: 
+      objectReference: {fileID: 8400000, guid: ac916ced5a7a1f54ba667ba88cbb7334, type: 2}
+    - target: {fileID: 1989911585002198851, guid: 06845b12939304edcb836b1be51cc799, type: 3}
+      propertyPath: unusedRenderTextures.Array.data[1]
+      value: 
+      objectReference: {fileID: 8400000, guid: f938a8d4c52460a4c9d585edc4ffb8f7, type: 2}
+    - target: {fileID: 1989911585002198851, guid: 06845b12939304edcb836b1be51cc799, type: 3}
+      propertyPath: unusedRenderTextures.Array.data[2]
+      value: 
+      objectReference: {fileID: 8400000, guid: 7c6c9916a6fe9b647b307a2b9e8dc5bd, type: 2}
+    - target: {fileID: 1989911585002198851, guid: 06845b12939304edcb836b1be51cc799, type: 3}
+      propertyPath: possibleGameScenesToLoad.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989911585002198851, guid: 06845b12939304edcb836b1be51cc799, type: 3}
+      propertyPath: possibleGameScenesToLoad.Array.data[0]
+      value: SampleScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989911585002198851, guid: 06845b12939304edcb836b1be51cc799, type: 3}
+      propertyPath: possibleGameScenesToLoad.Array.data[1]
+      value: SampleScene
+      objectReference: {fileID: 0}
     - target: {fileID: 8529345644468746901, guid: 06845b12939304edcb836b1be51cc799, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
