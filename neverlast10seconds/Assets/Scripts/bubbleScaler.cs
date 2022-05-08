@@ -45,7 +45,7 @@ public class bubbleScaler : MonoBehaviour
         mesh.SetBlendShapeWeight(2, Mathf.Lerp(0, 100, bubbleSize));
 
 
-        //bubbleSize = Mathf.PerlinNoise(Time.time, transform.localScale.x * 100);
+        bubbleSize = Mathf.PerlinNoise(Time.time, transform.localScale.x * 100);
     }
 
 

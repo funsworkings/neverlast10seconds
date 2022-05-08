@@ -26,9 +26,10 @@ public class ControlHandPosition : MonoBehaviour
             if (hit.collider.CompareTag("Bubble"))
             {
                 Debug.Log("POP");
+                amountmousemoved = 0;
             }
 
-            Debug.Log(hit.point);
+            
             Vector3 handDirection = hitCache - hit.point;
             if (hit.point != hitCache)
             {

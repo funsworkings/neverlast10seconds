@@ -1167,6 +1167,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alien_Posed_IK
       objectReference: {fileID: 0}
+    - target: {fileID: 5104990026674731745, guid: 88b9bccaff8ec9e47a219379436dbec7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5418119315115765516, guid: 88b9bccaff8ec9e47a219379436dbec7, type: 3}
       propertyPath: m_RootOrder
       value: 2
