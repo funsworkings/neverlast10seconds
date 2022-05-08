@@ -6,11 +6,14 @@ public class bubbleScaler : MonoBehaviour
 {
     [Range(0, 1)]
     public float bubbleSize = 0.0f;
+
     SkinnedMeshRenderer mesh;
+    CapsuleCollider cCollider;
     // Start is called before the first frame update
     void Start()
     {
         mesh = GetComponent<SkinnedMeshRenderer>();
+        cCollider = GetComponent<CapsuleCollider>();
         mesh.SetBlendShapeWeight(0, 100);
     }
 
@@ -20,7 +23,8 @@ public class bubbleScaler : MonoBehaviour
         if(bubbleSize < 0f)
         {
             bubbleSize = 0;
-        }else if(bubbleSize <= 0.33f)
+        }
+        else if(bubbleSize <= 0.33f)
         {
             //interpolates the bubbleSize value to change the shapeweights
             mesh.SetBlendShapeWeight(1, Mathf.Lerp(0, 100, bubbleSize * 3));
@@ -31,10 +35,17 @@ public class bubbleScaler : MonoBehaviour
         } else if(bubbleSize > 1)
         {
             bubbleSize = 1;
+
+            
         }
 
+        cCollider.center = Vector3.Lerp(new Vector3(0, 0, -0.007300895f), new Vector3(0, 0, -0.0003007389f), bubbleSize);
+        cCollider.radius = Mathf.Lerp(0.01011366f, 0.01146688f, bubbleSize);
+        cCollider.height = Mathf.Lerp(0.02022731f, 0.03422762f, bubbleSize);
         mesh.SetBlendShapeWeight(2, Mathf.Lerp(0, 100, bubbleSize));
 
+
+        //bubbleSize = Mathf.PerlinNoise(Time.time, transform.localScale.x * 100);
     }
 
 

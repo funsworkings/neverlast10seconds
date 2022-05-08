@@ -6,15 +6,28 @@ public class ControlHandPosition : MonoBehaviour
 {
     [SerializeField]
     private Transform _handTarget;
-
+    public float amountmousemoved;
 
     private Vector3 hitCache;
     // Update is called once per frame
     void Update()
     {
+
+        
+        //has to move mouse a certain threshold
+
         RaycastHit hit;
         if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100f))
         {
+            if (hit.collider.CompareTag("Skin"))
+            {
+                amountmousemoved += Mathf.Abs(Input.GetAxis("Mouse X")) + Mathf.Abs(Input.GetAxis("Mouse Y"));
+            }
+            if (hit.collider.CompareTag("Bubble"))
+            {
+                Debug.Log("POP");
+            }
+
             Debug.Log(hit.point);
             Vector3 handDirection = hitCache - hit.point;
             if (hit.point != hitCache)
@@ -25,7 +38,7 @@ public class ControlHandPosition : MonoBehaviour
             _handTarget.rotation = Quaternion.Lerp(_handTarget.rotation, Quaternion.Euler(90, 0, 0) * Quaternion.FromToRotation(Vector3.up, hit.normal) * Quaternion.Euler(handDirection), Time.deltaTime * 15f);// * _handTarget.rotation;
 
             
-
+           
             
             
             
