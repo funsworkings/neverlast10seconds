@@ -11,6 +11,9 @@ namespace cumOS.Overworld
 {
     public class BrowserController : UIWindowManager
     {
+        public static BrowserController Instance = null;
+        
+        
         // Properties
 
         private UIWindow _window;
@@ -65,6 +68,15 @@ namespace cumOS.Overworld
         private void Awake()
         {
             _window = GetComponent<UIWindow>();
+
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                DestroyImmediate(gameObject);
+            }
         }
 
         protected override void Start()
@@ -79,6 +91,11 @@ namespace cumOS.Overworld
 
         private void OnDestroy()
         {
+            if (Instance == this)
+            {
+                Instance = null;
+            }
+        
             if (_browserWindowTexture != null)
             {
                 DestroyImmediate(_browserWindowTexture);
@@ -153,6 +170,28 @@ namespace cumOS.Overworld
                     //spawn browser window
                     RandomBrowserWindow();
                     SetRandomSpawnTimer();
+                }
+            }
+        }
+
+        public void DisableMinigameWindow(int sceneIndex)
+        {
+            if (windows.Count > 0)
+            {
+                BrowserWindow bWindow = null;
+                
+                foreach (UIWindow window in windows)
+                {
+                    if ((window as BrowserWindow).GameScene.sceneIndex == sceneIndex)
+                    {
+                        bWindow = (window as BrowserWindow);
+                        break;
+                    }
+                }
+
+                if (bWindow != null)
+                {
+                    bWindow.Close();
                 }
             }
         }
