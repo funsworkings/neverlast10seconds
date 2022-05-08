@@ -6,14 +6,14 @@ public class ControlHandPosition : MonoBehaviour
 {
     [SerializeField]
     private Transform _handTarget;
-    public float amountmousemoved;
+
+    [SerializeField]
+    public static float amountmousemoved;
 
     private Vector3 hitCache;
     // Update is called once per frame
     void Update()
     {
-
-        
         //has to move mouse a certain threshold
 
         RaycastHit hit;
@@ -29,23 +29,14 @@ public class ControlHandPosition : MonoBehaviour
                 amountmousemoved = 0;
             }
 
-            
-            Vector3 handDirection = hitCache - hit.point;
-            if (hit.point != hitCache)
-            {
-                hitCache = hit.point;
-            }
             _handTarget.position = Vector3.Lerp(_handTarget.position, hit.point, Time.deltaTime * 15f);
-            _handTarget.rotation = Quaternion.Lerp(_handTarget.rotation, Quaternion.Euler(90, 0, 0) * Quaternion.FromToRotation(Vector3.up, hit.normal) * Quaternion.Euler(handDirection), Time.deltaTime * 15f);// * _handTarget.rotation;
+            //_handTarget.rotation = Quaternion.Lerp(_handTarget.rotation, Quaternion.Euler(90, 0, 0) * Quaternion.FromToRotation(Vector3.up, hit.normal) * Quaternion.Euler(handDirection), Time.deltaTime * 15f);// * _handTarget.rotation;
+            _handTarget.rotation = Quaternion.FromToRotation(_handTarget.rotation * Vector3.down, hit.normal) * _handTarget.rotation;
+           // r.rotation = Quaternion.FromToRotation(r.rotation * Vector3.up, groundNormal) * r.rotation
 
-            
-           
-            
-            
-            
-            
+
             Shader.SetGlobalVector("_HandPosition", hit.point);
-            Shader.SetGlobalVector("_HandDirection", handDirection);
+
         }
     }
 }
