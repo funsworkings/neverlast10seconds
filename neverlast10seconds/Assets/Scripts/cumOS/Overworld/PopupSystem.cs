@@ -11,18 +11,77 @@ namespace cumOS.Overworld
     public class PopupSystem : UIWindowManager
     {
         // properties
-
         [SerializeField] Popup popupPrefab;
         [SerializeField] private PopupDatabase _assetDatabase;
+
+        [Header("Spawning Settings")]
+        public bool spawnPopups = true;
+        public float popupTimer;
+        public float popupTimerTotal;
+        public Vector2 popupRandomTimeRange = new Vector2(5f, 10f);
         
+         
+        private PopupAudio popupAudio;
+        public PopupAudio PopupAudio
+        {
+            get
+            {
+                if (popupAudio == null)
+                {
+                    popupAudio = GetComponent<PopupAudio>();
+                }
+
+                return popupAudio;
+            }
+         
+        }
+
+
+        protected override void Start()
+        {
+            base.Start();
+            
+            SetRandomPopupTimer();
+        }
+
         private void Update()
         {
+            SpawnPopups();
+
+            //input key to spawn popups 
             if (Input.GetKeyUp(KeyCode.P))
             {
                 AddPopup(Instantiate(popupPrefab, itemsRoot));
             }
         }
 
+        void SpawnPopups()
+        {
+            if (spawnPopups)
+            {
+                popupTimer -= Time.deltaTime;
+
+                if (popupTimer < 0)
+                {
+                    //spawn popup
+                    AddPopup(Instantiate(popupPrefab, itemsRoot));
+                    SetRandomPopupTimer();
+                }
+            }
+        }
+
+        void SetRandomPopupTimer()
+        {
+            //random total
+            popupTimerTotal = Random.Range(popupRandomTimeRange.x, popupRandomTimeRange.y);
+            //set popup timer
+            popupTimer = popupTimerTotal;
+        }
+
+        /// <summary>
+        /// Generates popups. 
+        /// </summary>
+        /// <param name="popup"></param>
         void AddPopup(Popup popup)
         {
             popup.transform.position = GetRandomPopupPosition();
@@ -36,12 +95,12 @@ namespace cumOS.Overworld
             if (Random.Range(0, 2) == 0) // Image
             {
                 var img = _assetDatabase.images[Random.Range(0, _assetDatabase.images.Count)];
-                popup.Initialize(img);
+                popup.Initialize(img, this);
             }
             else // Video
             {
                 var clip = _assetDatabase.clips[Random.Range(0, _assetDatabase.clips.Count)];
-                popup.Initialize(clip);
+                popup.Initialize(clip,this);
             }
         }
 
