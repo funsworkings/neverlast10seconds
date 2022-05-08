@@ -3,6 +3,7 @@ using cumOS.UIShit;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace cumOS.Overworld
 {
@@ -28,6 +29,8 @@ namespace cumOS.Overworld
         
         [Header("Minigame Settings")]
         [SerializeField] private RawImage minigameImage;
+        public override Color color => minigameImage.color;
+
 
         protected override void Start()
         {
@@ -45,6 +48,12 @@ namespace cumOS.Overworld
         {
             minigameImage.color = color;
             tab.SetColor(color);
+        }
+
+        protected override Color GetColor()
+        {
+            Color col = Random.ColorHSV(0f, 1f, 0f, 1f, .87f, 1f);
+            return col;
         }
 
         public override void Show()

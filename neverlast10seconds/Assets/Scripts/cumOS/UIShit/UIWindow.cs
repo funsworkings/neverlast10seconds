@@ -51,7 +51,12 @@ namespace cumOS.UIShit
         public virtual void Bind(UIWindowManager manager)
         {
             this.manager = manager;
-            SetColor(Random.ColorHSV());
+            SetColor(GetColor());
+        }
+
+        protected virtual Color GetColor()
+        {
+            return Random.ColorHSV();
         }
 
         public virtual void SetColor(Color color)
