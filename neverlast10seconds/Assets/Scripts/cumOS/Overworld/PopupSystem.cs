@@ -87,7 +87,7 @@ namespace cumOS.Overworld
             popup.transform.position = GetRandomPopupPosition();
             AttachPopupContent(popup);
             
-            AddWindow(popup);
+            CreateWindow(popup);
         }
 
         void AttachPopupContent(Popup popup)

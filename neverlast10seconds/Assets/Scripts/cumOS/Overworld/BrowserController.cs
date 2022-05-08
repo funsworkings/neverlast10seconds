@@ -102,11 +102,11 @@ namespace cumOS.Overworld
             browserWindow.GameScene = gameScene;
             browserWindow.Initialize(null);
                 
-            AddWindow(browserWindow);
+            CreateWindow(browserWindow);
             LoadMinigameForBrowserWindow(browserWindow);
         }
 
-        public override void DeactivateWindow(UIWindow window)
+        protected override void DisableWindow(UIWindow window)
         {
             if (window != null)
             {
@@ -117,7 +117,7 @@ namespace cumOS.Overworld
                 }
             }
             
-            base.DeactivateWindow(window);
+            base.DisableWindow(window);
         }
 
         public BrowserUITab RequestTab(BrowserWindow window)

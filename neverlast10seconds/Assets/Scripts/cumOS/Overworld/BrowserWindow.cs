@@ -64,11 +64,16 @@ namespace cumOS.Overworld
             }
         }
 
-        public override void Activate()
+        public override void Destroy()
         {
-            base.Activate();
+            base.Close();
+        }
+
+        public override void SetActive(bool active)
+        {
+            base.SetActive(active);
             
-            (manager as BrowserController).Window.Select();
+            if(active) (manager as BrowserController).Window.Select();
         }
 
         public override void OnVisible()
