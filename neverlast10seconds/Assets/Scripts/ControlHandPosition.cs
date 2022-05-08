@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ControlHandPosition : MonoBehaviour
 {
     [SerializeField]
     private Transform _handTarget;
-    public float amountmousemoved;
+    public static float amountmousemoved;
+
+    
+
+    //public static float cumAmount; 
 
     private Vector3 hitCache;
+
     // Update is called once per frame
     void Update()
     {
-
+    
         
         //has to move mouse a certain threshold
 
@@ -21,13 +27,15 @@ public class ControlHandPosition : MonoBehaviour
         {
             if (hit.collider.CompareTag("Skin"))
             {
-                amountmousemoved += Mathf.Abs(Input.GetAxis("Mouse X")) + Mathf.Abs(Input.GetAxis("Mouse Y"));
+                amountmousemoved = Mathf.Abs(Input.GetAxis("Mouse X")) + Mathf.Abs(Input.GetAxis("Mouse Y"));
             }
             if (hit.collider.CompareTag("Bubble"))
             {
-                Debug.Log("POP");
-                amountmousemoved = 0;
+                //Debug.Log("POP");
+                //amountmousemoved;
             }
+
+           // Debug.Log("amount mouse moved: " + amountmousemoved.ToString());
 
             
             Vector3 handDirection = hitCache - hit.point;

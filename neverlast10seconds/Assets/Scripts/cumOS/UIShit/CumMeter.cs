@@ -2,12 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
+using UnityEngine.UI; 
 
 public class CumMeter : NonInstantiatingSingleton<CumMeter>
 {
     public AudioSource cumNoise;
-    public float scoreTimer; 
+    public float scoreTimer;
+    public Text timerText;
+
+    public float movementMultiplier;
+    public float timeMultiplier;
+
+    public Text cumValueText; 
 
     // impl for NonInstantiatingSingleton
     protected override CumMeter GetInstance()
@@ -16,29 +23,49 @@ public class CumMeter : NonInstantiatingSingleton<CumMeter>
     }
     
     public float currentCumValue;
-    public float amountToCumAt;
+    public float amountToCumAt = 1;
 
-    private Image cumMeterImage;
+    public Slider cumMeterUI; 
     
     void Start()
     {
-        cumMeterImage = GetComponent<Image>();
+        currentCumValue = 0f; 
         scoreTimer = 0; 
     }
 
     public void Update()
     {
-        scoreTimer += Time.deltaTime; 
-    }
+        scoreTimer += Time.deltaTime;
+        currentCumValue -= (ControlHandPosition.amountmousemoved * movementMultiplier);
+        currentCumValue += Time.deltaTime * timeMultiplier; 
 
+       // Debug.Log("current cum value: " + currentCumValue.ToString());
+
+        if (currentCumValue >= amountToCumAt)
+        {
+            StartCoroutine("CumSequence");
+        }
+        cumMeterUI.value = currentCumValue;
+
+        if (currentCumValue < 0)
+        {
+            currentCumValue = 0; 
+        }
+        if (currentCumValue >= 1)
+        {
+            currentCumValue = 1; 
+        }
+
+        timerText.text = "time: " + Mathf.Round(scoreTimer).ToString();
+
+        cumValueText.text = "cum value: " + currentCumValue.ToString(); 
+    }
+    /*
     public void AddToCumValue(float amount)
     {
         currentCumValue += amount;
 
-        if (currentCumValue >= amountToCumAt)
-        {
-            TimeToCum();   
-        }
+       
     }
 
     public void RemoveFromCumValue(float amount)
@@ -56,14 +83,12 @@ public class CumMeter : NonInstantiatingSingleton<CumMeter>
     {
         cumMeterImage.fillAmount = currentCumValue;
     }
+    */
 
     /// <summary>
     /// Actual Cum Time!!!
     /// </summary>
-    public void TimeToCum()
-    {
-        StartCoroutine("CumSequence");
-    }
+   
 
     IEnumerator CumSequence()
     {

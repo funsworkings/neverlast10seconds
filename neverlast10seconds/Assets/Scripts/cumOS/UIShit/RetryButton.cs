@@ -11,8 +11,10 @@ public class RetryButton : MonoBehaviour
     public static float scoreThisTime;
     public float scoreBestTime;
 
-    TextMesh scoreThisTimeText;
-    TextMesh scoreBestTimeText; 
+    public Text scoreThisTimeText;
+    public Text scoreBestTimeText;
+
+
 
     void Start()
     {
@@ -20,6 +22,9 @@ public class RetryButton : MonoBehaviour
         if (scoreThisTime >= scoreBestTime)
         {
             scoreBestTime = scoreThisTime;
+        }else
+        {
+            scoreBestTime = scoreBestTime; 
         }
         //set the text to the scores
         scoreThisTimeText.text = "you lasted: " + scoreThisTime.ToString();
