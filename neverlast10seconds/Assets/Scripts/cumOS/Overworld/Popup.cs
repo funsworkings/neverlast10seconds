@@ -34,7 +34,16 @@ namespace cumOS.Overworld
             }
          
         }
-        
+
+        private void OnDestroy()
+        {
+            if (_render != null)
+            {
+                DestroyImmediate(_render);
+                _render = null;
+            }
+        }
+
         protected override void Start()
         {
             base.Start();
@@ -51,21 +60,15 @@ namespace cumOS.Overworld
             else if (_clip != null) Initialize(_clip);
         }
 
-        public override void Hide()
+        public override void Close()
         {
-            base.Hide();
-            
             //play close sound 
             if (popupMgr)
             {
                 popupMgr.PopupAudio.PlayRandomSoundRandomPitch(PopupAudio.popupCloseSounds, 1f);
             }
-
-            if (_render != null)
-            {
-                DestroyImmediate(_render);
-                _render = null;
-            }
+            
+            base.Destroy();
         }
 
         public override void SetActive(bool active)

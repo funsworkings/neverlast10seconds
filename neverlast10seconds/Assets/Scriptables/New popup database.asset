@@ -76,3 +76,7 @@ MonoBehaviour:
     displayWidth: 1920
     displayHeight: 1080
     gameTitle: Donkey S3X
+  - sceneIndex: 5
+    displayWidth: 960
+    displayHeight: 540
+    gameTitle: Donkey S3X <i> BLOOD REMASTERED </i>

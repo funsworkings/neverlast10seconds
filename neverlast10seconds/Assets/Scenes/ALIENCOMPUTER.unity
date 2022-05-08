@@ -863,6 +863,14 @@ PrefabInstance:
       propertyPath: possibleGameScenesToLoad.Array.data[1]
       value: SampleScene
       objectReference: {fileID: 0}
+    - target: {fileID: 8122245958609335956, guid: 06845b12939304edcb836b1be51cc799, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 395.2125
+      objectReference: {fileID: 0}
+    - target: {fileID: 8122245958609335956, guid: 06845b12939304edcb836b1be51cc799, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 69.92883
+      objectReference: {fileID: 0}
     - target: {fileID: 8529345644468746901, guid: 06845b12939304edcb836b1be51cc799, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
