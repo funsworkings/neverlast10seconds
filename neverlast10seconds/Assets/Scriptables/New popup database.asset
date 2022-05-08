@@ -72,3 +72,7 @@ MonoBehaviour:
     displayWidth: 400
     displayHeight: 300
     gameTitle: LOVE
+  - sceneIndex: 4
+    displayWidth: 1920
+    displayHeight: 1080
+    gameTitle: Donkey S3X
