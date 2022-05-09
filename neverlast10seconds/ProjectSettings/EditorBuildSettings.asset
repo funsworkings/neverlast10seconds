@@ -4,5 +4,23 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/ALIENRECLINING.unity
+    guid: c3e11ce0eea25a044ac0e5bdfc870282
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/SampleScene 1.unity
+    guid: 5c1b3779b34b74f84899de42b739dea9
+  - enabled: 1
+    path: Assets/mini mini games/race game/race game.unity
+    guid: 6cb246aac396f6c4fbaa3dc766b60429
+  - enabled: 1
+    path: Assets/Scenes/DonkeySex.unity
+    guid: 3e96a2080ef3f8b40bd61a8737e867ca
+  - enabled: 1
+    path: Assets/Scenes/DonkeySex Clone.unity
+    guid: 88030b674b6d9104eaa38fdcf85202a3
   m_configObjects: {}

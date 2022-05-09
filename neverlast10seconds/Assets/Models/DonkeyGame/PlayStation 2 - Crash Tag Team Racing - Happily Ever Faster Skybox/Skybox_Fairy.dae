@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset><contributor><author></author><authoring_tool>FBX COLLADA exporter</authoring_tool><comments></comments></contributor><created>2018-08-03T08:24:48Z</created><keywords></keywords><modified>2018-08-03T08:24:48Z</modified><revision></revision><subject></subject><title></title><unit meter="0.025400" name="centimeter"></unit><up_axis>Y_UP</up_axis></asset>
+  <library_images>
+    <image id="Fairy1_BaclskyboxShapeFBXASC058NC_FairyTale_m1F-image" name="Fairy1_BaclskyboxShapeFBXASC058NC_FairyTale_m1F"><init_from>FairyTailSkyBack.bmp.png</init_from></image>
+    <image id="file2-image" name="file2"><init_from>sky_FairyTaleClouds.tga.png</init_from></image>
+    <image id="file3-image" name="file3"><init_from>sky_FairyTaleClouds.tga.png</init_from></image>
+    <image id="file4-image" name="file4"><init_from>sky_FairyTaleCloudWisps.tga.png</init_from></image>
+    <image id="file5-image" name="file5"><init_from>sky_FairyTaleCloudWisps.tga.png</init_from></image>
+  </library_images>
+  <library_materials>
+    <material id="Fairy1_BaclskyboxShapeFBXASC058NC_FairyTale_m1" name="Fairy1_BaclskyboxShapeFBXASC058NC_FairyTale_m1">
+      <instance_effect url="#Fairy1_BaclskyboxShapeFBXASC058NC_FairyTale_m1-fx"/>
+    </material>
+    <material id="layeredShader1" name="layeredShader1">
+      <instance_effect url="#layeredShader1-fx"/>
+    </material>
+    <material id="layeredShader2" name="layeredShader2">
+      <instance_effect url="#layeredShader2-fx"/>
+    </material>
+  </library_materials>
+  <library_effects>
+    <effect id="Fairy1_BaclskyboxShapeFBXASC058NC_FairyTale_m1-fx" name="Fairy1_BaclskyboxShapeFBXASC058NC_FairyTale_m1">
+      <profile_COMMON>
+        <technique sid="standard">
+          <phong>
+            <emission>
+              <color sid="emission">0.000000  0.000000 0.000000 1.000000</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0.400000  0.400000 0.400000 1.000000</color>
+            </ambient>
+            <diffuse>
+              <texture texture="Fairy1_BaclskyboxShapeFBXASC058NC_FairyTale_m1F-image" texcoord="CHANNEL0">
+                <extra>
+                  <technique profile="MAYA">
+                    <wrapU sid="wrapU0">TRUE</wrapU>
+                    <wrapV sid="wrapV0">TRUE</wrapV>
+                    <blend_mode>ADD</blend_mode>
+                  </technique>
+                </extra>
+              </texture>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.000000  0.000000 0.000000 1.000000</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">1.071773</float>
+            </shininess>
+            <reflective>
+              <color sid="reflective">0.000000  0.000000 0.000000 1.000000</color>
+            </reflective>
+            <reflectivity>
+              <float sid="reflectivity">1.000000</float>
+            </reflectivity>
+            <transparent opaque="RGB_ZERO">
+              <color sid="transparent">1.000000  1.000000 1.000000 1.000000</color>
+            </transparent>
+            <transparency>
+              <float sid="transparency">0.000000</float>
+            </transparency>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="layeredShader1-fx" name="layeredShader1">
+      <profile_COMMON>
+        <technique sid="standard">
+          <phong>
+            <emission>
+              <color sid="emission">0.000000  0.000000 0.000000 1.000000</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0.500000  0.500000 0.500000 1.000000</color>
+            </ambient>
+            <diffuse>
+              <texture texture="file2-image" texcoord="CHANNEL0">
+                <extra>
+                  <technique profile="MAYA">
+                    <wrapU sid="wrapU0">TRUE</wrapU>
+                    <wrapV sid="wrapV0">TRUE</wrapV>
+                    <blend_mode>ADD</blend_mode>
+                  </technique>
+                </extra>
+              </texture>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.000000  0.000000 0.000000 1.000000</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">1.071773</float>
+            </shininess>
+            <reflective>
+              <color sid="reflective">0.000000  0.000000 0.000000 1.000000</color>
+            </reflective>
+            <reflectivity>
+              <float sid="reflectivity">1.000000</float>
+            </reflectivity>
+            <transparent opaque="RGB_ZERO">
+              <texture texture="file3-image" texcoord="CHANNEL0">
+                <extra>
+                  <technique profile="MAYA">
+                    <wrapU sid="wrapU0">TRUE</wrapU>
+                    <wrapV sid="wrapV0">TRUE</wrapV>
+                    <blend_mode>ADD</blend_mode>
+                  </technique>
+                </extra>
+              </texture>
+            </transparent>
+            <transparency>
+              <float sid="transparency">0.000000</float>
+            </transparency>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="layeredShader2-fx" name="layeredShader2">
+      <profile_COMMON>
+        <technique sid="standard">
+          <phong>
+            <emission>
+              <color sid="emission">0.000000  0.000000 0.000000 1.000000</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0.500000  0.500000 0.500000 1.000000</color>
+            </ambient>
+            <diffuse>
+              <texture texture="file4-image" texcoord="CHANNEL0">
+                <extra>
+                  <technique profile="MAYA">
+                    <wrapU sid="wrapU0">TRUE</wrapU>
+                    <wrapV sid="wrapV0">TRUE</wrapV>
+                    <blend_mode>ADD</blend_mode>
+                  </technique>
+                </extra>
+              </texture>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.000000  0.000000 0.000000 1.000000</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">1.071773</float>
+            </shininess>
+            <reflective>
+              <color sid="reflective">0.000000  0.000000 0.000000 1.000000</color>
+            </reflective>
+            <reflectivity>
+              <float sid="reflectivity">1.000000</float>
+            </reflectivity>
+            <transparent opaque="RGB_ZERO">
+              <texture texture="file5-image" texcoord="CHANNEL0">
+                <extra>
+                  <technique profile="MAYA">
+                    <wrapU sid="wrapU0">TRUE</wrapU>
+                    <wrapV sid="wrapV0">TRUE</wrapV>
+                    <blend_mode>ADD</blend_mode>
+                  </technique>
+                </extra>
+              </texture>
+            </transparent>
+            <transparency>
+              <float sid="transparency">0.000000</float>
+            </transparency>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_geometries>
+    <geometry id="Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-lib" name="Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShapeMesh">
+      <mesh>
+        <source id="Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-POSITION">
+          <float_array id="Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-POSITION-array" count="84">
+-1743.740967 -501.603088 0.000000
+-1743.740967 -501.603088 0.000000
+-1510.124023 730.645325 0.000000
+-1510.124023 730.645325 0.000000
+-1233.010986 -501.603088 1233.010986
+-1233.010986 -501.603088 -1233.010986
+-1067.818970 730.645325 1067.818970
+-1067.818970 730.645325 -1067.818970
+-871.870483 1417.912964 0.000000
+-871.870483 1417.912964 0.000000
+-0.000043 -501.603088 1743.740967
+0.000000 -501.603088 -1743.740967
+0.000000 730.645325 1510.124023
+0.000000 730.645325 -1510.124023
+0.000000 1417.912964 871.870728
+0.000000 1417.912964 -871.870483
+0.000000 1538.244995 0.000000
+0.000000 1538.244995 0.000000
+871.870728 1417.912964 0.000000
+871.870728 1417.912964 0.000000
+1067.818970 730.645325 1067.818970
+1067.818970 730.645325 -1067.818970
+1233.010986 -501.603088 -1233.010986
+1233.010986 -501.603088 1233.010986
+1510.124023 730.645325 0.000000
+1510.124023 730.645325 0.000000
+1743.740967 -501.603088 0.000000
+1743.740967 -501.603088 0.000000
+</float_array>
+          <technique_common>
+            <accessor source="#Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-POSITION-array" count="28" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-Normal0">
+          <float_array id="Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-Normal0-array" count="288">
+0.694732 -0.186268 0.694732
+0.865330 -0.350331 0.358431
+0.910026 -0.172528 0.376945
+0.865330 -0.350331 0.358431
+0.694732 -0.186268 0.694732
+0.639210 -0.427575 0.639210
+0.865330 -0.350331 0.358431
+0.639210 -0.427575 0.639210
+0.483505 -0.807701 0.337406
+0.483505 -0.807701 0.337406
+0.639210 -0.427575 0.639210
+0.000000 -0.858015 0.513624
+0.483505 -0.807701 0.337406
+0.000000 -0.858015 0.513624
+0.135460 -0.981479 0.135460
+-0.483505 -0.807701 0.337406
+-0.135460 -0.981479 0.135460
+0.000000 -0.858015 0.513624
+-0.483505 -0.807701 0.337406
+0.000000 -0.858015 0.513624
+-0.639210 -0.427575 0.639210
+-0.483505 -0.807701 0.337406
+-0.639210 -0.427575 0.639210
+-0.865330 -0.350331 0.358431
+-0.865330 -0.350331 0.358431
+-0.639210 -0.427575 0.639210
+-0.694732 -0.186268 0.694732
+-0.865330 -0.350331 0.358431
+-0.694732 -0.186268 0.694732
+-0.910026 -0.172528 0.376945
+0.000000 -0.375265 -0.926918
+0.000000 -0.186268 -0.982499
+0.694732 -0.186268 -0.694732
+0.000000 -0.375265 -0.926918
+0.694732 -0.186268 -0.694732
+0.639210 -0.427575 -0.639210
+0.000000 -0.375265 -0.926918
+0.639210 -0.427575 -0.639210
+0.000000 -0.858015 -0.513624
+0.000000 -0.375265 -0.926918
+0.000000 -0.858015 -0.513624
+-0.639210 -0.427575 -0.639210
+0.000000 -0.375265 -0.926918
+-0.639210 -0.427575 -0.639210
+-0.694732 -0.186268 -0.694732
+0.000000 -0.375265 -0.926918
+-0.694732 -0.186268 -0.694732
+0.000000 -0.186268 -0.982499
+0.694732 -0.186268 -0.694732
+0.910026 -0.172528 -0.376945
+0.865330 -0.350331 -0.358431
+0.694732 -0.186268 -0.694732
+0.865330 -0.350331 -0.358431
+0.639210 -0.427575 -0.639210
+0.639210 -0.427575 -0.639210
+0.865330 -0.350331 -0.358431
+0.483505 -0.807701 -0.337406
+0.639210 -0.427575 -0.639210
+0.483505 -0.807701 -0.337406
+0.000000 -0.858015 -0.513624
+0.000000 -0.858015 -0.513624
+0.483505 -0.807701 -0.337406
+0.135460 -0.981479 -0.135459
+0.000000 -0.186268 0.982499
+-0.694732 -0.186268 0.694732
+0.000000 -0.375265 0.926918
+0.000000 -0.375265 0.926918
+-0.694732 -0.186268 0.694732
+-0.639210 -0.427575 0.639210
+0.000000 -0.375265 0.926918
+-0.639210 -0.427575 0.639210
+0.000000 -0.858015 0.513624
+0.000000 -0.375265 0.926918
+0.000000 -0.858015 0.513624
+0.639210 -0.427575 0.639210
+0.000000 -0.375265 0.926918
+0.639210 -0.427575 0.639210
+0.694732 -0.186268 0.694732
+0.000000 -0.375265 0.926918
+0.694732 -0.186268 0.694732
+0.000000 -0.186268 0.982499
+0.000000 -0.858015 -0.513624
+-0.135460 -0.981479 -0.135460
+-0.483505 -0.807701 -0.337406
+0.000000 -0.858015 -0.513624
+-0.483505 -0.807701 -0.337406
+-0.639210 -0.427575 -0.639210
+-0.639210 -0.427575 -0.639210
+-0.483505 -0.807701 -0.337406
+-0.865330 -0.350331 -0.358431
+-0.639210 -0.427575 -0.639210
+-0.865330 -0.350331 -0.358431
+-0.694732 -0.186268 -0.694732
+-0.694732 -0.186268 -0.694732
+-0.865330 -0.350331 -0.358431
+-0.910026 -0.172528 -0.376945
+</float_array>
+          <technique_common>
+            <accessor source="#Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-Normal0-array" count="96" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-UV0">
+          <float_array id="Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-UV0-array" count="56">
+-0.250008 0.074845
+-1.000016 0.858883
+-1.000016 0.074845
+-0.250008 0.858883
+-1.000016 0.950000
+0.500000 0.950000
+-0.250008 0.994965
+2.000016 0.950000
+1.250008 0.994965
+1.250008 0.858883
+2.000016 0.858883
+1.250008 0.074845
+2.000016 0.074845
+0.500000 0.858883
+0.500000 0.074845
+1.250008 0.074845
+1.250008 0.858883
+0.500000 0.950000
+-0.250008 0.858883
+-0.250008 0.074845
+2.000016 0.074845
+2.000016 0.858883
+2.000016 0.950000
+0.500000 0.074845
+0.500000 0.858883
+-1.000016 0.950000
+-1.000016 0.858883
+-1.000016 0.074845
+</float_array>
+          <technique_common>
+            <accessor source="#Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-UV0-array" count="28" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-VERTEX">
+          <input semantic="POSITION" source="#Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-POSITION"/>
+        </vertices>
+        <triangles count="32" material="Fairy1_BaclskyboxShapeFBXASC058NC_FairyTale_m1"><input semantic="VERTEX" offset="0" source="#Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-VERTEX"/><input semantic="NORMAL" offset="1" source="#Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-Normal0"/><input semantic="TEXCOORD" offset="2" set="0" source="#Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-UV0"/><p> 5 0 0 2 1 1 0 2 2 2 3 1 5 4 0 7 5 3 2 6 1 7 7 3 8 8 4 8 9 4 7 10 3 15 11 5 8 12 4 15 13 5 16 14 6 19 15 7 17 16 8 15 17 5 19 18 7 15 19 5 21 20 9 19 21 7 21 22 9 25 23 10 25 24 10 21 25 9 22 26 11 25 27 10 22 28 11 27 29 12 12 30 13 10 31 14 4 32 15 12 33 13 4 34 15 6 35 16 12 36 13 6 37 16 14 38 17 12 39 13 14 40 17 20 41 18 12 42 13 20 43 18 23 44 19 12 45 13 23 46 19 10 47 14 4 48 15 1 49 20 3 50 21 4 51 15 3 52 21 6 53 16 6 54 16 3 55 21 9 56 22 6 57 16 9 58 22 14 59 17 14 60 17 9 61 22 17 62 8 11 63 23 22 64 11 13 65 24 13 66 24 22 67 11 21 68 9 13 69 24 21 70 9 15 71 5 13 72 24 15 73 5 7 74 3 13 75 24 7 76 3 5 77 0 13 78 24 5 79 0 11 80 23 14 81 17 16 82 6 18 83 25 14 84 17 18 85 25 20 86 18 20 87 18 18 88 25 24 89 26 20 90 18 24 91 26 23 92 19 23 93 19 24 94 26 26 95 27</p></triangles>
+      </mesh>
+    </geometry>
+    <geometry id="Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-lib" name="Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1ShapeMesh">
+      <mesh>
+        <source id="Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-POSITION">
+          <float_array id="Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-POSITION-array" count="60">
+-1111.232056 0.000000 0.000000
+-1111.232056 0.000000 0.000000
+-962.354980 555.615906 0.000000
+-962.354980 555.615906 0.000000
+-785.759583 0.000000 785.759583
+-785.759583 0.000000 -785.759583
+-680.487671 555.615906 680.487671
+-680.487671 555.615906 -680.487671
+-0.000027 0.000000 1111.232056
+0.000000 0.000000 -1111.232056
+0.000000 555.615906 962.354980
+0.000000 555.615906 -962.354980
+680.487671 555.615906 -680.487671
+680.487793 555.615906 680.487793
+785.759583 0.000000 -785.759583
+785.759583 0.000000 785.759583
+962.354980 555.615906 0.000000
+962.354980 555.615906 0.000000
+1111.232056 0.000000 0.000000
+1111.232056 0.000000 0.000000
+</float_array>
+          <technique_common>
+            <accessor source="#Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-POSITION-array" count="20" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-Normal0">
+          <float_array id="Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-Normal0-array" count="144">
+0.896809 -0.240300 -0.371470
+0.671585 -0.258786 -0.694264
+0.896809 -0.240300 -0.371471
+0.671585 -0.258786 -0.694264
+0.896809 -0.240300 -0.371470
+0.669836 -0.258775 -0.695957
+0.671585 -0.258786 -0.694264
+0.669836 -0.258775 -0.695957
+-0.016037 -0.258786 -0.965802
+-0.016037 -0.258786 -0.965802
+0.669836 -0.258775 -0.695957
+-0.018470 -0.258775 -0.965761
+-0.016037 -0.258786 -0.965802
+-0.018470 -0.258775 -0.965761
+-0.694264 -0.258786 -0.671585
+-0.694264 -0.258786 -0.671585
+-0.018470 -0.258775 -0.965761
+-0.695957 -0.258775 -0.669836
+-0.694264 -0.258786 -0.671585
+-0.695957 -0.258775 -0.669836
+-0.896809 -0.240299 -0.371470
+-0.896809 -0.240299 -0.371470
+-0.695957 -0.258775 -0.669836
+-0.896809 -0.240299 -0.371470
+-0.896809 -0.240300 0.371471
+-0.896809 -0.240300 0.371470
+-0.671585 -0.258786 0.694264
+-0.671585 -0.258786 0.694264
+-0.896809 -0.240300 0.371470
+-0.669836 -0.258775 0.695957
+-0.671585 -0.258786 0.694264
+-0.669836 -0.258775 0.695957
+0.016037 -0.258786 0.965802
+0.016037 -0.258786 0.965802
+-0.669836 -0.258775 0.695957
+0.018470 -0.258775 0.965761
+0.016037 -0.258786 0.965802
+0.018470 -0.258775 0.965761
+0.694264 -0.258786 0.671585
+0.694264 -0.258786 0.671585
+0.018470 -0.258775 0.965761
+0.695957 -0.258775 0.669836
+0.694264 -0.258786 0.671585
+0.695957 -0.258775 0.669836
+0.896809 -0.240300 0.371470
+0.896809 -0.240300 0.371470
+0.695957 -0.258775 0.669836
+0.896809 -0.240299 0.371470
+</float_array>
+          <technique_common>
+            <accessor source="#Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-Normal0-array" count="48" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-UV0">
+          <float_array id="Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-UV0-array" count="40">
+2.000016 0.984605
+1.250008 0.002339
+2.000016 0.002339
+1.250008 0.984605
+0.500000 0.002339
+0.500000 0.984605
+-0.250008 0.002339
+-0.250008 0.984605
+-1.000016 0.002339
+-1.000016 0.984605
+2.000016 0.002339
+2.000016 0.984605
+1.250008 0.002339
+1.250008 0.984605
+0.500000 0.002339
+0.500000 0.984605
+-0.250008 0.002339
+-0.250008 0.984605
+-1.000016 0.002339
+-1.000016 0.984605
+</float_array>
+          <technique_common>
+            <accessor source="#Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-UV0-array" count="20" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-VERTEX">
+          <input semantic="POSITION" source="#Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-POSITION"/>
+        </vertices>
+        <triangles count="16" material="layeredShader1"><input semantic="VERTEX" offset="0" source="#Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-VERTEX"/><input semantic="NORMAL" offset="1" source="#Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-Normal0"/><input semantic="TEXCOORD" offset="2" set="0" source="#Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-UV0"/><p> 3 0 0 4 1 1 1 2 2 4 3 1 3 4 0 6 5 3 4 6 1 6 7 3 8 8 4 8 9 4 6 10 3 10 11 5 8 12 4 10 13 5 15 14 6 15 15 6 10 16 5 13 17 7 15 18 6 13 19 7 18 20 8 18 21 8 13 22 7 16 23 9 19 24 10 17 25 11 14 26 12 14 27 12 17 28 11 12 29 13 14 30 12 12 31 13 9 32 14 9 33 14 12 34 13 11 35 15 9 36 14 11 37 15 5 38 16 5 39 16 11 40 15 7 41 17 5 42 16 7 43 17 0 44 18 0 45 18 7 46 17 2 47 19</p></triangles>
+      </mesh>
+    </geometry>
+    <geometry id="Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-lib" name="Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShapeMesh">
+      <mesh>
+        <source id="Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-POSITION">
+          <float_array id="Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-POSITION-array" count="60">
+-850.958496 0.000000 0.000000
+-850.958496 0.000000 0.000000
+-729.177185 215.239807 0.000000
+-729.177185 215.239807 0.000000
+-601.718628 0.000000 601.718628
+-601.718628 0.000000 -601.718628
+-515.607178 215.239807 515.607178
+-515.607178 215.239807 -515.607178
+-0.000021 0.000000 850.958496
+0.000000 0.000000 -850.958496
+0.000000 215.239807 729.177185
+0.000000 215.239807 -729.177185
+515.607178 215.239807 -515.607178
+515.607300 215.239807 515.607300
+601.718628 0.000000 -601.718628
+601.718628 0.000000 601.718628
+729.177185 215.239807 0.000000
+729.177185 215.239807 0.000000
+850.958679 0.000000 0.000000
+850.958679 0.000000 0.000000
+</float_array>
+          <technique_common>
+            <accessor source="#Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-POSITION-array" count="20" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-Normal0">
+          <float_array id="Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-Normal0-array" count="144">
+0.818767 -0.463252 -0.339144
+0.601397 -0.492338 -0.629225
+0.818766 -0.463253 -0.339144
+0.601397 -0.492338 -0.629225
+0.818767 -0.463252 -0.339144
+0.599639 -0.492313 -0.630921
+0.601397 -0.492338 -0.629225
+0.599639 -0.492313 -0.630921
+-0.019679 -0.492341 -0.870180
+-0.019679 -0.492341 -0.870180
+0.599639 -0.492313 -0.630921
+-0.022122 -0.492316 -0.870135
+-0.019679 -0.492341 -0.870180
+-0.022122 -0.492316 -0.870135
+-0.629226 -0.492338 -0.601397
+-0.629226 -0.492338 -0.601397
+-0.022122 -0.492316 -0.870135
+-0.630921 -0.492313 -0.599639
+-0.629226 -0.492338 -0.601397
+-0.630921 -0.492313 -0.599639
+-0.818767 -0.463252 -0.339143
+-0.818767 -0.463252 -0.339143
+-0.630921 -0.492313 -0.599639
+-0.818767 -0.463254 -0.339142
+-0.818766 -0.463253 0.339144
+-0.818767 -0.463252 0.339144
+-0.601397 -0.492338 0.629225
+-0.601397 -0.492338 0.629225
+-0.818767 -0.463252 0.339144
+-0.599639 -0.492313 0.630921
+-0.601397 -0.492338 0.629225
+-0.599639 -0.492313 0.630921
+0.019679 -0.492341 0.870180
+0.019679 -0.492341 0.870180
+-0.599639 -0.492313 0.630921
+0.022122 -0.492316 0.870135
+0.019679 -0.492341 0.870180
+0.022122 -0.492316 0.870135
+0.629225 -0.492338 0.601397
+0.629225 -0.492338 0.601397
+0.022122 -0.492316 0.870135
+0.630921 -0.492313 0.599638
+0.629225 -0.492338 0.601397
+0.630921 -0.492313 0.599638
+0.818767 -0.463251 0.339143
+0.818767 -0.463251 0.339143
+0.630921 -0.492313 0.599638
+0.818767 -0.463253 0.339142
+</float_array>
+          <technique_common>
+            <accessor source="#Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-Normal0-array" count="48" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-UV0">
+          <float_array id="Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-UV0-array" count="40">
+2.000016 0.975908
+1.250008 0.103337
+2.000016 0.103337
+1.250008 0.975908
+0.500000 0.103337
+0.500000 0.975908
+-0.250008 0.103337
+-0.250008 0.975908
+-1.000016 0.103337
+-1.000016 0.975908
+2.000016 0.103337
+2.000016 0.975908
+1.250008 0.103337
+1.250008 0.975908
+0.500000 0.103337
+0.500000 0.975908
+-0.250008 0.103337
+-0.250008 0.975908
+-1.000016 0.103337
+-1.000016 0.975908
+</float_array>
+          <technique_common>
+            <accessor source="#Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-UV0-array" count="20" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-VERTEX">
+          <input semantic="POSITION" source="#Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-POSITION"/>
+        </vertices>
+        <triangles count="16" material="layeredShader2"><input semantic="VERTEX" offset="0" source="#Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-VERTEX"/><input semantic="NORMAL" offset="1" source="#Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-Normal0"/><input semantic="TEXCOORD" offset="2" set="0" source="#Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-UV0"/><p> 3 0 0 4 1 1 1 2 2 4 3 1 3 4 0 6 5 3 4 6 1 6 7 3 8 8 4 8 9 4 6 10 3 10 11 5 8 12 4 10 13 5 15 14 6 15 15 6 10 16 5 13 17 7 15 18 6 13 19 7 18 20 8 18 21 8 13 22 7 16 23 9 19 24 10 17 25 11 14 26 12 14 27 12 17 28 11 12 29 13 14 30 12 12 31 13 9 32 14 9 33 14 12 34 13 11 35 15 9 36 14 11 37 15 5 38 16 5 39 16 11 40 15 7 41 17 5 42 16 7 43 17 0 44 18 0 45 18 7 46 17 2 47 19</p></triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_animations>
+    <animation id="Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-anim" name="Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape"><animation><source id="Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-Matrix-animation-input"><float_array id="Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-Matrix-animation-input-array" count="1">
+
+0.033333</float_array><technique_common><accessor source="#Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-Matrix-animation-input-array" count="1"><param name="TIME" type="float"/></accessor></technique_common></source><source id="Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-Matrix-animation-output-transform"><float_array id="Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-Matrix-animation-output-transform-array" count="16">
+
+1.000000 0.000000 0.000000 -7.677734 0.000000 1.000000 -0.000000 0.000000 0.000000 0.000000 1.000000 31.234226 0.000000 0.000000 0.000000 1.000000</float_array><technique_common><accessor source="#Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-Matrix-animation-output-transform-array" count="1" stride="16"><param type="float4x4"/></accessor></technique_common></source><source id="Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-Interpolations"><Name_array id="Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-Interpolations-array" count="1">
+ LINEAR</Name_array><technique_common><accessor source="#Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-Interpolations-array" count="1"><param type="name"/></accessor></technique_common></source><sampler id="Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-Matrix-animation-transform"><input semantic="INPUT" source="#Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-Matrix-animation-input"/><input semantic="OUTPUT" source="#Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-Matrix-animation-output-transform"/><input semantic="INTERPOLATION" source="#Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-Interpolations"/></sampler><channel source="#Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-Matrix-animation-transform" target="Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape/matrix"/></animation></animation>
+    <animation id="Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-anim" name="Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape"><animation><source id="Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-Matrix-animation-input"><float_array id="Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-Matrix-animation-input-array" count="1">
+
+0.033333</float_array><technique_common><accessor source="#Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-Matrix-animation-input-array" count="1"><param name="TIME" type="float"/></accessor></technique_common></source><source id="Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-Matrix-animation-output-transform"><float_array id="Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-Matrix-animation-output-transform-array" count="16">
+
+1.000000 0.000000 0.000000 -7.677734 0.000000 1.000000 -0.000000 0.000000 0.000000 0.000000 1.000000 31.234226 0.000000 0.000000 0.000000 1.000000</float_array><technique_common><accessor source="#Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-Matrix-animation-output-transform-array" count="1" stride="16"><param type="float4x4"/></accessor></technique_common></source><source id="Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-Interpolations"><Name_array id="Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-Interpolations-array" count="1">
+ LINEAR</Name_array><technique_common><accessor source="#Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-Interpolations-array" count="1"><param type="name"/></accessor></technique_common></source><sampler id="Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-Matrix-animation-transform"><input semantic="INPUT" source="#Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-Matrix-animation-input"/><input semantic="OUTPUT" source="#Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-Matrix-animation-output-transform"/><input semantic="INTERPOLATION" source="#Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-Interpolations"/></sampler><channel source="#Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-Matrix-animation-transform" target="Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape/matrix"/></animation></animation>
+    <animation id="Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-anim" name="Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape"><animation><source id="Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-Matrix-animation-input"><float_array id="Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-Matrix-animation-input-array" count="1">
+
+0.033333</float_array><technique_common><accessor source="#Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-Matrix-animation-input-array" count="1"><param name="TIME" type="float"/></accessor></technique_common></source><source id="Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-Matrix-animation-output-transform"><float_array id="Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-Matrix-animation-output-transform-array" count="16">
+
+1.000000 0.000000 0.000000 -7.677734 0.000000 1.000000 -0.000000 0.000000 0.000000 0.000000 1.000000 31.234226 0.000000 0.000000 0.000000 1.000000</float_array><technique_common><accessor source="#Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-Matrix-animation-output-transform-array" count="1" stride="16"><param type="float4x4"/></accessor></technique_common></source><source id="Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-Interpolations"><Name_array id="Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-Interpolations-array" count="1">
+ LINEAR</Name_array><technique_common><accessor source="#Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-Interpolations-array" count="1"><param type="name"/></accessor></technique_common></source><sampler id="Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-Matrix-animation-transform"><input semantic="INPUT" source="#Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-Matrix-animation-input"/><input semantic="OUTPUT" source="#Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-Matrix-animation-output-transform"/><input semantic="INTERPOLATION" source="#Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-Interpolations"/></sampler><channel source="#Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-Matrix-animation-transform" target="Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape/matrix"/></animation></animation>
+  </library_animations>
+  <library_visual_scenes>
+    <visual_scene id="Skybox_Fairy" name="Skybox_Fairy">
+      <node name="Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape" id="Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape" sid="Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape"><matrix sid="matrix">1.000000 0.000000 0.000000 -7.677734 0.000000 1.000000 -0.000000 0.000000 0.000000 0.000000 1.000000 31.234226 0.000000 0.000000 0.000000 1.000000</matrix><instance_geometry url="#Fairy1_BaclskyboxShapeFBXASC058Fairy1_BaclskyboxShape-lib"><bind_material><technique_common><instance_material symbol="Fairy1_BaclskyboxShapeFBXASC058NC_FairyTale_m1" target="#Fairy1_BaclskyboxShapeFBXASC058NC_FairyTale_m1"/></technique_common></bind_material></instance_geometry><extra><technique profile="FCOLLADA"><visibility>1.000000</visibility></technique></extra></node>
+      <node name="Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape" id="Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape" sid="Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape"><matrix sid="matrix">1.000000 0.000000 0.000000 -7.677734 0.000000 1.000000 -0.000000 0.000000 0.000000 0.000000 1.000000 31.234226 0.000000 0.000000 0.000000 1.000000</matrix><instance_geometry url="#Fairy1_Clouds1ShapeFBXASC058Fairy1_Clouds1Shape-lib"><bind_material><technique_common><instance_material symbol="layeredShader1" target="#layeredShader1"/></technique_common></bind_material></instance_geometry><extra><technique profile="FCOLLADA"><visibility>1.000000</visibility></technique></extra></node>
+      <node name="Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape" id="Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape" sid="Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape"><matrix sid="matrix">1.000000 0.000000 0.000000 -7.677734 0.000000 1.000000 -0.000000 0.000000 0.000000 0.000000 1.000000 31.234226 0.000000 0.000000 0.000000 1.000000</matrix><instance_geometry url="#Fairy1SkywispsShape1FBXASC058Fairy1SkywispsShape-lib"><bind_material><technique_common><instance_material symbol="layeredShader2" target="#layeredShader2"/></technique_common></bind_material></instance_geometry><extra><technique profile="FCOLLADA"><visibility>1.000000</visibility></technique></extra></node>
+      <extra><technique profile="MAX3D"><frame_rate>30.000000</frame_rate></technique><technique profile="FCOLLADA"><start_time>0.000000</start_time><end_time>3.333333</end_time></technique></extra>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Skybox_Fairy"></instance_visual_scene>
+  </scene>
+</COLLADA>
