@@ -1,8 +1,10 @@
 using System;
+using cumOS.Scriptables;
 using cumOS.UIShit;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace cumOS.Overworld
 {
@@ -24,10 +26,12 @@ namespace cumOS.Overworld
         }
         
         public Sprite thumbnail;
-        public int GameScene = -1;
+        public MinigameData GameScene { get; set; } = null;
         
         [Header("Minigame Settings")]
         [SerializeField] private RawImage minigameImage;
+        public override Color color => minigameImage.color;
+
 
         protected override void Start()
         {
@@ -47,6 +51,13 @@ namespace cumOS.Overworld
             tab.SetColor(color);
         }
 
+        protected override Color GetColor()
+        {
+            Color col = Random.ColorHSV(0f, 1f, 0f, 1f, .87f, 1f);
+            col = new Color(col.r, col.g, col.b, .87f);
+            return col;
+        }
+
         public override void Show()
         {
             base.Show();
@@ -64,11 +75,16 @@ namespace cumOS.Overworld
             }
         }
 
-        public override void Activate()
+        public override void Destroy()
         {
-            base.Activate();
+            base.Close();
+        }
+
+        public override void SetActive(bool active)
+        {
+            base.SetActive(active);
             
-            (manager as BrowserController).Window.Select();
+            if(active) (manager as BrowserController).Window.Select();
         }
 
         public override void OnVisible()

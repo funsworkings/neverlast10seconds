@@ -18,52 +18,46 @@ namespace cumOS.UIShit
             var scrapeWindows = itemsRoot.GetComponentsInChildren<UIWindow>(true);
             foreach (UIWindow window in scrapeWindows)
             {
-                if (window.gameObject.activeSelf)
-                {
-                    windows.Insert(0, window);
-                }
-                else
-                {
-                    windows.Add(window);
-                }
-
-                window.Bind(this);
+                CreateWindow(window, reorder:false);
             }
             UpdateSiblingIndices();
-            
-            UIWindow.onSelectWindow += window =>
-            {
-                if (window.manager != this) return;
-                
-                if (selectedWindow != window)
-                {
-                    if(selectedWindow != null) selectedWindow.Deactivate();
-                    selectedWindow = window;
-                    window.Activate();
-                }
-
-                BringToFront(window); // Bring window to front
-                window.Drag();
-            };
-
-            UIWindow.onReleaseWindow += window =>
-            {
-                if (window.manager != this) return;
-                
-                window.Release();
-            };
-
-            UIWindow.onCloseWindow += window =>
-            {
-                if (window.manager != this) return;
-                
-                DeactivateWindow(window);
-            };
         }
+        
+        #region Window ops
+
+        public void DidSelectWindow(UIWindow window)
+        {
+            if (selectedWindow != window)
+            {
+                if(selectedWindow != null) selectedWindow.SetActive(false);
+                selectedWindow = window;
+                window.SetActive(true);
+            }
+
+            BringToFront(window); // Bring window to front
+            window.Drag();
+        }
+
+        public void DidReleaseWindow(UIWindow window)
+        {
+            window.Release();
+        }
+
+        public void DidCloseWindow(UIWindow window)
+        {
+            DisableWindow(window);
+        }
+
+        public void DidDestroyWindow(UIWindow window)
+        {
+            DestroyWindow(window);
+        }
+        
+        #endregion
 
         #region Active ops
 
-        public void ActivateWindow(UIWindow window)
+        protected void EnableWindow(UIWindow window)
         {
             if (window == null) return;
 
@@ -72,19 +66,20 @@ namespace cumOS.UIShit
                 window.gameObject.SetActive(true);
                 window.Show();
             }
+            
             BringToFront(window);
         }
 
-        public virtual void DeactivateWindow(UIWindow window)
+        protected virtual void DisableWindow(UIWindow window)
         {
             if (window == null) return;
 
             if (selectedWindow == window && selectedWindow != null)
             {
-                selectedWindow.Deactivate();
+                selectedWindow.SetActive(false);
                 selectedWindow = null;
             }
-            
+
             SendToBack(window);
             if (window.gameObject.activeSelf)
             {
@@ -93,7 +88,7 @@ namespace cumOS.UIShit
             }
         }
 
-        public void AddWindow(UIWindow window)
+        protected void CreateWindow(UIWindow window, bool reorder = true)
         {
             if (!windows.Contains(window))
             {
@@ -101,7 +96,22 @@ namespace cumOS.UIShit
                 window.Bind(this);
 
                 window.transform.parent = itemsRoot;
-                BringToFront(window);
+                if(reorder) BringToFront(window);
+            }
+            else
+            {
+                EnableWindow(window); // Bring window to front
+            }
+        }
+
+        protected void DestroyWindow(UIWindow window)
+        {
+            if (windows.Contains(window))
+            {
+                windows.Remove(window);
+                Destroy(window.gameObject);
+                
+                UpdateSiblingIndices(); // Fire off callback
             }
         }
 
@@ -109,7 +119,7 @@ namespace cumOS.UIShit
         
         #region View ops
 
-        public void BringToFront(UIWindow window)
+        void BringToFront(UIWindow window)
         {
             if (window == null) return;
             if (!windows.Contains(window)) return;
@@ -121,7 +131,7 @@ namespace cumOS.UIShit
             UpdateSiblingIndices();
         }
         
-        public void BringForward(UIWindow window)
+        void BringForward(UIWindow window)
         {
             if (window == null) return;
             if (!windows.Contains(window)) return;
@@ -137,7 +147,7 @@ namespace cumOS.UIShit
             }
         }
 
-        public void SendToBack(UIWindow window)
+        void SendToBack(UIWindow window)
         {
             if (window == null) return;
             if (!windows.Contains(window)) return;
@@ -149,7 +159,7 @@ namespace cumOS.UIShit
             UpdateSiblingIndices();
         }
 
-        public void SendBack(UIWindow window)
+        void SendBack(UIWindow window)
         {
             if (window == null) return;
             if (!windows.Contains(window)) return;
@@ -166,7 +176,7 @@ namespace cumOS.UIShit
             }
         }
 
-        protected void UpdateSiblingIndices()
+        void UpdateSiblingIndices()
         {
             int i = 0;
             int count = windows.Count;
