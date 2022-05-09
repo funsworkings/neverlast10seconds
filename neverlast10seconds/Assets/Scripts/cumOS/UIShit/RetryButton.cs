@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,40 +7,65 @@ using UnityEngine.UI;
 
 public class RetryButton : MonoBehaviour
 {
-    // Start is called before the first frame update
-
-    public static float scoreThisTime;
-    public float scoreBestTime;
-
     public Text scoreThisTimeText;
     public Text scoreBestTimeText;
-
-
-
+    
     void Start()
     {
-        //check if this is a high score
-        if (scoreThisTime >= scoreBestTime)
-        {
-            scoreBestTime = scoreThisTime;
-        }else
-        {
-            scoreBestTime = scoreBestTime; 
-        }
-        //set the text to the scores
-        scoreThisTimeText.text = "you lasted: " + scoreThisTime.ToString();
-        scoreBestTimeText.text = "best time: " + scoreBestTime.ToString(); 
+        SetScoreUI();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
+        CumMeter.Instance.onPlayerCumEvent.AddListener(CheckHighScore);
+    }
+
+    private void OnDisable()
+    {
+        CumMeter.Instance.onPlayerCumEvent.RemoveListener(CheckHighScore);
+    }
+
+    /// <summary>
+    /// Retrieve saved high scores. 
+    /// </summary>
+    public void SetScoreUI()
+    {
+        scoreThisTimeText.text = "you lasted: " + CumMeter.Instance.scoreTimer;
+        scoreBestTimeText.text = "best time: " +  PlayerPrefs.GetFloat("highScore");
+    }
+
+    void CheckHighScore()
+    {
+        //has high score to compare against
+        if (PlayerPrefs.HasKey("highScore"))
+        {
+            float highScore = PlayerPrefs.GetFloat("highScore");
+            if (CumMeter.Instance.scoreTimer > highScore)
+            {
+                SaveHighScore();
+            }
+        }
+        //no high score key
+        else
+        {
+            SaveHighScore();
+        }
         
+        SetScoreUI();
+    }
+
+    /// <summary>
+    /// Saves current high score. 
+    /// </summary>
+    public void SaveHighScore()
+    {
+        PlayerPrefs.SetFloat("highScore", CumMeter.Instance.scoreTimer);
+        SetScoreUI();
     }
 
     public void ReturntoGame()
     {
         //hook into the main gameplay scene when it's created
-        SceneManager.LoadScene("ALIENCOMPUTER");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

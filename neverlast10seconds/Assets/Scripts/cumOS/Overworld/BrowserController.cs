@@ -191,7 +191,7 @@ namespace cumOS.Overworld
 
                 if (bWindow != null)
                 {
-                    bWindow.Close();
+                    bWindow.Destroy();
                 }
             }
         }
