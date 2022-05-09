@@ -77,7 +77,12 @@ namespace cumOS.Overworld
 
         public override void Destroy()
         {
-            base.Close();
+            if (_tab != null)
+            {
+                _tab.gameObject.SetActive(false);
+            }
+            
+            base.Destroy();
         }
 
         public override void SetActive(bool active)

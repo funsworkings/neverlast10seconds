@@ -78,15 +78,11 @@ public class Racer : MonoBehaviour
 
         // vel += xAxis * (newX - currentX) + zAxis * (newZ - currentZ);
 
-
-
         if (!OnGround) vel.y -= gravity;
         r.velocity = vel;
 
-        float maxTurnAllowed = 1;// Mathf.Abs(fwdTapSpeed);
-        float turnDir = Mathf.Sign(fwdTapSpeed);
         angVel.y = Mathf.MoveTowards(angVel.y,
-                                    (rightTapSpeed - leftTapSpeed) * maxTurnSpeed * maxTurnAllowed * turnDir,
+                                    (rightTapSpeed - leftTapSpeed) * maxTurnSpeed,
                                      OnGround ? maxAccel : maxAccel * .1f);
         r.angularVelocity = prevAngVel = angVel;
 
