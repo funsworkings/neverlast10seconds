@@ -37,6 +37,7 @@ public class CumMeter : NonInstantiatingSingleton<CumMeter>
     {
         currentCumValue = 0f; 
         scoreTimer = 0; 
+        scoreInterface.SetActive(false);
     }
 
     public void Update()
