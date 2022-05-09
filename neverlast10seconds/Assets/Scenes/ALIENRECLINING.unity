@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44663358, g: 0.4964794, b: 0.5748499, a: 1}
+  m_IndirectSpecularColor: {r: 0.4466343, g: 0.49648052, b: 0.57485133, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -566,6 +566,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 713036092}
   m_CullTransparentMesh: 1
+--- !u!4 &770449180 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2558286298975954892, guid: 2985a33d2123dd74da7cfd8d3d699ef0, type: 3}
+  m_PrefabInstance: {fileID: 6424967518990672573}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &807368222
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,11 +985,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8529345644468746901, guid: 06845b12939304edcb836b1be51cc799, type: 3}
   m_PrefabInstance: {fileID: 927062750}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1130467556 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6234581194968198384, guid: 2985a33d2123dd74da7cfd8d3d699ef0, type: 3}
-  m_PrefabInstance: {fileID: 6424967518990672573}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1159153367
 GameObject:
   m_ObjectHideFlags: 0
@@ -1089,6 +1089,12 @@ MonoBehaviour:
   currentCumValue: 0
   amountToCumAt: 1
   cumMeterUI: {fileID: 1861539228}
+  playerCame: 0
+  onPlayerCumEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  computerInterface: {fileID: 0}
+  scoreInterface: {fileID: 0}
 --- !u!4 &1263543254
 Transform:
   m_ObjectHideFlags: 0
@@ -1545,7 +1551,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d483acbd5bbbfa9408536f2e0bd933d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _handTarget: {fileID: 1130467556}
+  _handTarget: {fileID: 770449180}
+  _cm: {fileID: 1263543253}
 --- !u!4 &2058588495
 Transform:
   m_ObjectHideFlags: 0
@@ -1707,6 +1714,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 619015920, guid: 2985a33d2123dd74da7cfd8d3d699ef0, type: 3}
+      propertyPath: _cm
+      value: 
+      objectReference: {fileID: 1263543253}
+    - target: {fileID: 639427099, guid: 2985a33d2123dd74da7cfd8d3d699ef0, type: 3}
+      propertyPath: _cm
+      value: 
+      objectReference: {fileID: 1263543253}
+    - target: {fileID: 1850475673, guid: 2985a33d2123dd74da7cfd8d3d699ef0, type: 3}
+      propertyPath: _cm
+      value: 
+      objectReference: {fileID: 1263543253}
     - target: {fileID: 7102780047507769926, guid: 2985a33d2123dd74da7cfd8d3d699ef0, type: 3}
       propertyPath: m_Name
       value: Alien_Posed_IKFBX
@@ -1755,9 +1774,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8854115543434903698, guid: 2985a33d2123dd74da7cfd8d3d699ef0, type: 3}
-      propertyPath: m_BlendShapeWeights.Array.data[0]
-      value: 40
-      objectReference: {fileID: 0}
+    - target: {fileID: 8501619647061815757, guid: 2985a33d2123dd74da7cfd8d3d699ef0, type: 3}
+      propertyPath: cm
+      value: 
+      objectReference: {fileID: 1263543253}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2985a33d2123dd74da7cfd8d3d699ef0, type: 3}

@@ -66,7 +66,7 @@ public class CumMeter : NonInstantiatingSingleton<CumMeter>
 
             cumValueText.text = "cum value: " + currentCumValue.ToString(); 
         }
-        
+        Shader.SetGlobalFloat("GlobalTime", Time.time);
         // Debug.Log("current cum value: " + currentCumValue.ToString());
     }
 
