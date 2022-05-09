@@ -72,11 +72,15 @@ namespace cumOS.Overworld
             if (activeScene >= 0)
             {
                 Debug.Log($"Unload scene: {activeScene}");
+
+                var t_scene = SceneManager.GetSceneByBuildIndex(activeScene);
+                if (t_scene.IsValid())
+                {
+                    var asyncUnloadOp = SceneManager.UnloadSceneAsync(activeScene);
+                    asyncUnloadOp.allowSceneActivation = true;
                 
-                var asyncUnloadOp = SceneManager.UnloadSceneAsync(activeScene);
-                asyncUnloadOp.allowSceneActivation = true;
-                
-                while (!asyncUnloadOp.isDone) yield return null; // Wait for scene unload op to complete
+                    while (!asyncUnloadOp.isDone) yield return null; // Wait for scene unload op to complete   
+                }
             }
 
             activeScene = -1;
