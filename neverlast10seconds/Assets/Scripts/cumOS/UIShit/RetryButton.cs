@@ -1,14 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI; 
 
 public class RetryButton : MonoBehaviour
 {
-    public Text scoreThisTimeText;
-    public Text scoreBestTimeText;
+    public TMP_Text scoreThisTimeText;
+    public TMP_Text scoreBestTimeText;
     
     void Start()
     {

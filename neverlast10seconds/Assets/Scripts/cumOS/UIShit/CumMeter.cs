@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -10,12 +11,12 @@ public class CumMeter : NonInstantiatingSingleton<CumMeter>
 {
     public AudioSource cumNoise;
     public float scoreTimer;
-    public Text timerText;
+    public TMP_Text timerText;
 
     public float movementMultiplier;
     public float timeMultiplier;
 
-    public Text cumValueText; 
+    public TMP_Text cumValueText; 
 
     // impl for NonInstantiatingSingleton
     protected override CumMeter GetInstance()
