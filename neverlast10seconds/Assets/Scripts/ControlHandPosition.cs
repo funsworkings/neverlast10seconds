@@ -9,7 +9,7 @@ public class ControlHandPosition : MonoBehaviour
     private Transform _handTarget;
     public static float amountmousemoved;
 
-    
+    public CumMeter _cm;
 
     //public static float cumAmount; 
 

@@ -9,6 +9,8 @@ public class BubbleSpawner : MonoBehaviour
 
     private Mesh _spawnArea;
 
+    public CumMeter cm;
+
     public Vector2 _scaleRange;
 
     void Start()
@@ -27,6 +29,7 @@ public class BubbleSpawner : MonoBehaviour
                 Vector3 worldPt = transform.TransformPoint(_spawnArea.vertices[i]);
                 Vector3 worldRot = transform.TransformDirection(_spawnArea.normals[i]);
                 GameObject clone = Instantiate(_bubble, worldPt, Quaternion.identity);
+                clone.GetComponent<bubbleScaler>()._cm = cm;
                 clone.transform.forward = worldRot;
                 clone.transform.localScale = Vector3.one * Random.Range(_scaleRange.x, _scaleRange.y);
             }

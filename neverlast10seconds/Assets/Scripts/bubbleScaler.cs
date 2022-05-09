@@ -13,6 +13,7 @@ public class bubbleScaler : MonoBehaviour
     private float blendSpeed;
     private Vector3 scaleCache;
     float timer;
+    public CumMeter _cm;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,9 +56,9 @@ public class bubbleScaler : MonoBehaviour
 
         mesh.SetBlendShapeWeight(2, Mathf.Lerp(0, 100, bubbleSize));
 
-        timer += Time.deltaTime * blendSpeed * (ControlHandPosition.amountmousemoved * 0.01f);
+        timer += Time.deltaTime * blendSpeed * _cm.currentCumValue;
 
-        bubbleSize = .5f + .15f*((Mathf.Sin(blendOffset + timer) + 1f)/2f);
+        bubbleSize = _cm.currentCumValue + (((Mathf.Sin(blendOffset + timer) + 1f)/2f) * .2f);
         
 
         //transform.localScale = scaleCache * Mathf.Sin(Time.time + transform.position.x);

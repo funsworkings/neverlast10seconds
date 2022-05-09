@@ -6,6 +6,7 @@ public class FaceBlendShapeControl : MonoBehaviour
 {
     SkinnedMeshRenderer mesh;
     float timer;
+    public CumMeter _cm;
     void Start()
     {
         mesh = GetComponent<SkinnedMeshRenderer>();
@@ -16,7 +17,7 @@ public class FaceBlendShapeControl : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-
-        mesh.SetBlendShapeWeight(0, 50 + (20f*Mathf.Sin(timer * (.1f * ControlHandPosition.amountmousemoved))));
+        
+        mesh.SetBlendShapeWeight(0, 100*_cm.currentCumValue);
     }
 }
