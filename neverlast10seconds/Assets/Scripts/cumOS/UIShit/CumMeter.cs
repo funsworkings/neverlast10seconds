@@ -58,7 +58,9 @@ public class CumMeter : NonInstantiatingSingleton<CumMeter>
 
         timerText.text = "time: " + Mathf.Round(scoreTimer).ToString();
 
-        cumValueText.text = "cum value: " + currentCumValue.ToString(); 
+        cumValueText.text = "cum value: " + currentCumValue.ToString();
+
+        Shader.SetGlobalFloat("GlobalTime", Time.time);
     }
     /*
     public void AddToCumValue(float amount)

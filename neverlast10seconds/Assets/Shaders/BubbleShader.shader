@@ -78,9 +78,9 @@ Shader "BubbleShader"
 }
 /*ASEBEGIN
 Version=18935
--3.2;264.8;1523.2;659;2063.069;409.3651;1.410225;True;False
-Node;AmplifyShaderEditor.RangedFloatNode;20;-1233.611,-29.77056;Inherit;False;Global;GlobalTime;GlobalTime;8;0;Create;True;0;0;0;False;0;False;0;0;0;0;0;1;FLOAT;0
+8;302.4;1523.2;659;2063.069;409.3651;1.410225;True;False
 Node;AmplifyShaderEditor.RangedFloatNode;8;-1313.424,134.0587;Inherit;False;Property;_Speed;Speed;0;0;Create;True;0;0;0;False;0;False;0;0.43;0;1;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;20;-1233.611,-29.77056;Inherit;False;Global;GlobalTime;GlobalTime;8;0;Create;True;0;0;0;False;0;False;0;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.TexCoordVertexDataNode;2;-1098.265,-188.3738;Inherit;False;0;2;0;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;9;-779.355,29.27891;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleAddOpNode;7;-606.3552,-60.22113;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
@@ -99,4 +99,4 @@ WireConnection;15;1;14;0
 WireConnection;15;2;1;0
 WireConnection;0;2;15;0
 ASEEND*/
-//CHKSM=353396CBCA471287DC672DCB9DE55E67F1E0620D
+//CHKSM=BE4480B934FBFC5D57C36F419CA83B36782C89A6
