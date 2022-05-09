@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI; 
@@ -25,7 +26,12 @@ public class CumMeter : NonInstantiatingSingleton<CumMeter>
     public float currentCumValue;
     public float amountToCumAt = 1;
 
-    public Slider cumMeterUI; 
+    public Slider cumMeterUI;
+    [Header("Cum Ending")]
+    public bool playerCame;
+    public UnityEvent onPlayerCumEvent;
+    public GameObject computerInterface;
+    public GameObject scoreInterface;
     
     void Start()
     {
@@ -35,76 +41,58 @@ public class CumMeter : NonInstantiatingSingleton<CumMeter>
 
     public void Update()
     {
-        scoreTimer += Time.deltaTime;
-        currentCumValue -= (ControlHandPosition.amountmousemoved * movementMultiplier);
-        currentCumValue += Time.deltaTime * timeMultiplier; 
-
-       // Debug.Log("current cum value: " + currentCumValue.ToString());
-
         if (currentCumValue >= amountToCumAt)
         {
-            StartCoroutine("CumSequence");
-        }
-        cumMeterUI.value = currentCumValue;
-
-        if (currentCumValue < 0)
-        {
-            currentCumValue = 0; 
-        }
-        if (currentCumValue >= 1)
-        {
-            currentCumValue = 1; 
+            TimeToCum();
         }
 
-        timerText.text = "time: " + Mathf.Round(scoreTimer).ToString();
-
-        cumValueText.text = "cum value: " + currentCumValue.ToString(); 
-    }
-    /*
-    public void AddToCumValue(float amount)
-    {
-        currentCumValue += amount;
-
-       
-    }
-
-    public void RemoveFromCumValue(float amount)
-    {
-        currentCumValue -= amount;
-
-        if (currentCumValue < 0)
+        if (!playerCame)
         {
-            currentCumValue = 0;
+            scoreTimer += Time.deltaTime;
+            currentCumValue -= (ControlHandPosition.amountmousemoved * movementMultiplier);
+            currentCumValue += Time.deltaTime * timeMultiplier; 
+            cumMeterUI.value = currentCumValue;
+
+            if (currentCumValue < 0)
+            {
+                currentCumValue = 0; 
+            }
+            if (currentCumValue >= 1)
+            {
+                currentCumValue = 1; 
+            }
+
+            timerText.text = "time: " + Mathf.Round(scoreTimer).ToString();
+
+            cumValueText.text = "cum value: " + currentCumValue.ToString(); 
         }
         
+        // Debug.Log("current cum value: " + currentCumValue.ToString());
     }
-
-    public void UpdateCumMeterUI()
-    {
-        cumMeterImage.fillAmount = currentCumValue;
-    }
-    */
 
     /// <summary>
     /// Actual Cum Time!!!
     /// </summary>
-   
+    public void TimeToCum()
+    {
+        playerCame = true;
+        
+        onPlayerCumEvent?.Invoke();
+        
+        StartCoroutine("CumSequence");
+    }
 
     IEnumerator CumSequence()
     {
-        //freeze timer
-        scoreTimer = scoreTimer;
-        //set score for highscore screen
-        RetryButton.scoreThisTime = scoreTimer;
-
         //close all popups and browser tabs?
 
         cumNoise.Play();
+        
+        computerInterface.SetActive(false);
 
         //activate deflated face
         yield return new WaitForSecondsRealtime(3);
-        SceneManager.LoadScene("Scores"); 
-
-        yield return null; 
+        
+        scoreInterface.SetActive(true);
     }
 }
