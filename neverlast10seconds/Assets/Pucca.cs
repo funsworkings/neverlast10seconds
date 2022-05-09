@@ -29,8 +29,7 @@ public class Pucca : MonoBehaviour
 
         if (tAtGaru > 2)
         {
-            print("win");
-            //  browser
+            cumOS.Overworld.BrowserController.Instance.DisableMinigameWindow(3);
         }
     }
 
