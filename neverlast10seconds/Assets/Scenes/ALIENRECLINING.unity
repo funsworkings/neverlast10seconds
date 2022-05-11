@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 22695263}
   - component: {fileID: 22695262}
-  - component: {fileID: 22695261}
   m_Layer: 0
   m_Name: FaceCam
   m_TagString: MainCamera
@@ -141,14 +140,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &22695261
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 22695260}
-  m_Enabled: 1
 --- !u!20 &22695262
 Camera:
   m_ObjectHideFlags: 0
@@ -963,7 +954,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1438115908634468925, guid: a8aa233e4702332428e43e4d0b9542ac, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3847195367027614907, guid: a8aa233e4702332428e43e4d0b9542ac, type: 3}
       propertyPath: scoreBestTimeText
