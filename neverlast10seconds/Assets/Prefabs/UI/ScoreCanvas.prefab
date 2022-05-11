@@ -250,10 +250,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e46616e25507a42b496ad3f9d94220f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreThisTime: 0
-  scoreBestTime: 0
-  scoreThisTimeText: {fileID: 1438115909129105033}
-  scoreBestTimeText: {fileID: 1438115908928892793}
+  scoreThisTimeText: {fileID: 0}
+  scoreBestTimeText: {fileID: 0}
 --- !u!1 &1438115908644949467
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,7 +317,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: try again?
+  m_text: cum again?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c42092b38e0894e13a32250af3d8e815, type: 2}
   m_sharedMaterial: {fileID: -3063471602255107179, guid: c42092b38e0894e13a32250af3d8e815, type: 2}
