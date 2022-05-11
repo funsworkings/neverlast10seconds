@@ -20,11 +20,14 @@ public class DeflateAlien : MonoBehaviour
     [SerializeField]
     private GameObject[] destroyList;
 
+    [SerializeField]
+    private bool deflateTriggered = false;
+
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || deflateTriggered)
         {
             Deflate();
         }
@@ -32,7 +35,6 @@ public class DeflateAlien : MonoBehaviour
 
     public void Deflate()
     {
-        _cameraPos.position = newCameraPos;
         _ikRig.weight = 0;
         _alienSkin.enabled = true;
 
