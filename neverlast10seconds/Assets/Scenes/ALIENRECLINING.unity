@@ -1134,7 +1134,7 @@ MonoBehaviour:
   cumNoise: {fileID: 360558943}
   scoreTimer: 0
   timerText: {fileID: 807368225}
-  movementMultiplier: 0.001
+  movementMultiplier: 0.0007
   timeMultiplier: 0.05
   cumValueText: {fileID: 2062216398}
   currentCumValue: 0

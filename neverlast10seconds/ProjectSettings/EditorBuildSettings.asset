@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DonkeySex Clone.unity
     guid: 88030b674b6d9104eaa38fdcf85202a3
+  - enabled: 1
+    path: Assets/Scenes/HotChicks.unity
+    guid: a3aed32c555e4b743aa123a2671ea1a6
   m_configObjects: {}
