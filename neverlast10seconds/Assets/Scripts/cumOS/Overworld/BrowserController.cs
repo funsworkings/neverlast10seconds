@@ -119,9 +119,12 @@ namespace cumOS.Overworld
         void RandomBrowserWindow()
         {
             var gameScene = LoadRandomMinigame();
-            if (gameScene.sceneIndex >= 0)
+            if (gameScene != null)
             {
-                AddBrowserWindow(Instantiate(browserWindowPrefab, itemsRoot), gameScene);
+                if (gameScene.sceneIndex >= 0)
+                {
+                    AddBrowserWindow(Instantiate(browserWindowPrefab, itemsRoot), gameScene);
+                }
             }
         }
 

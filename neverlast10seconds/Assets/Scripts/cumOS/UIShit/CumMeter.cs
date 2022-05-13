@@ -28,9 +28,13 @@ public class CumMeter : NonInstantiatingSingleton<CumMeter>
     public float amountToCumAt = 1;
 
     public Slider cumMeterUI;
-    [Header("Cum Ending")]
+    [Header("Cum Ending")] 
+    public bool hasStarted;
     public bool playerCame;
+    public UnityEvent onBeginMasturbationEvent;
     public UnityEvent onPlayerCumEvent;
+    public GameObject titleInterface;
+    public GameObject cumInterface;
     public GameObject computerInterface;
     public GameObject scoreInterface;
     
@@ -38,7 +42,20 @@ public class CumMeter : NonInstantiatingSingleton<CumMeter>
     {
         currentCumValue = 0f; 
         scoreTimer = 0; 
+        //enable only title interface
+        titleInterface.SetActive(true);
         scoreInterface.SetActive(false);
+        cumInterface.SetActive(false);
+        computerInterface.SetActive(false);
+    }
+
+    public void SetStarted()
+    {
+        computerInterface.SetActive(true);
+        cumInterface.SetActive(true);
+        titleInterface.SetActive(false);
+        hasStarted = true;
+        onBeginMasturbationEvent?.Invoke();
     }
 
     public void Update()
@@ -48,7 +65,16 @@ public class CumMeter : NonInstantiatingSingleton<CumMeter>
             TimeToCum();
         }
 
-        if (!playerCame)
+        //to start from title 
+        if (!hasStarted)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SetStarted();
+            }
+        }
+
+        if (!playerCame && hasStarted)
         {
             scoreTimer += Time.deltaTime;
             currentCumValue -= (ControlHandPosition.amountmousemoved * movementMultiplier);

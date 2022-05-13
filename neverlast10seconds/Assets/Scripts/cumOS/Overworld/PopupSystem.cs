@@ -36,12 +36,14 @@ namespace cumOS.Overworld
          
         }
 
-
-        protected override void Start()
+        private void OnEnable()
         {
-            base.Start();
-            
-            SetRandomPopupTimer();
+            CumMeter.Instance.onBeginMasturbationEvent.AddListener(SetRandomPopupTimer);
+        }
+
+        private void OnDisable()
+        {
+            CumMeter.Instance.onBeginMasturbationEvent.RemoveListener(SetRandomPopupTimer);
         }
 
         private void Update()
