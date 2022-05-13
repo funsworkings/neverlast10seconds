@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI; 
 
 public class CumMeter : NonInstantiatingSingleton<CumMeter>
 {
@@ -37,6 +36,10 @@ public class CumMeter : NonInstantiatingSingleton<CumMeter>
     public GameObject cumInterface;
     public GameObject computerInterface;
     public GameObject scoreInterface;
+
+    public AnimationCurve cumCurve;
+
+    private float cumRate;
     
     void Start()
     {
@@ -78,7 +81,7 @@ public class CumMeter : NonInstantiatingSingleton<CumMeter>
         {
             scoreTimer += Time.deltaTime;
             currentCumValue -= (ControlHandPosition.amountmousemoved * movementMultiplier);
-            currentCumValue += Time.deltaTime * timeMultiplier; 
+            currentCumValue += Time.deltaTime * timeMultiplier * (1 + (currentCumValue * 2)); 
             cumMeterUI.value = currentCumValue;
 
             if (currentCumValue < 0)
@@ -94,7 +97,9 @@ public class CumMeter : NonInstantiatingSingleton<CumMeter>
 
             cumValueText.text = "cum value: " + currentCumValue.ToString(); 
         }
-        Shader.SetGlobalFloat("GlobalTime", Time.time);
+
+        cumRate += Time.deltaTime * cumCurve.Evaluate(currentCumValue);
+        Shader.SetGlobalFloat("GlobalTime", cumRate);
         // Debug.Log("current cum value: " + currentCumValue.ToString());
     }
 

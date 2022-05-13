@@ -40,7 +40,8 @@ public class bubbleScaler : MonoBehaviour
             mesh.SetBlendShapeWeight(0, Mathf.Lerp(100, 0, bubbleSize * 3));
         } else if(bubbleSize <= 1f)
         {
-            mesh.SetBlendShapeWeight(1, Mathf.Lerp(100, 25, bubbleSize));
+           
+            mesh.SetBlendShapeWeight(1, Mathf.Lerp(133, 25, bubbleSize));
         } else if(bubbleSize > 1)
         {
             bubbleSize = 1;
@@ -58,7 +59,7 @@ public class bubbleScaler : MonoBehaviour
 
         timer += Time.deltaTime * blendSpeed * _cm.currentCumValue;
 
-        bubbleSize = _cm.currentCumValue + (((Mathf.Sin(blendOffset + timer) + 1f)/2f) * .2f);
+        bubbleSize = _cm.currentCumValue + (((Mathf.Sin(blendOffset + timer) + 1f)/2f) * .1f);
         
 
         //transform.localScale = scaleCache * Mathf.Sin(Time.time + transform.position.x);
