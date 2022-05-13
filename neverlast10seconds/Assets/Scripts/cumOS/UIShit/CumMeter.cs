@@ -81,7 +81,7 @@ public class CumMeter : NonInstantiatingSingleton<CumMeter>
         {
             scoreTimer += Time.deltaTime;
             currentCumValue -= (ControlHandPosition.amountmousemoved * movementMultiplier);
-            currentCumValue += Time.deltaTime * timeMultiplier * (1 + (currentCumValue * 2)); 
+            currentCumValue += Time.deltaTime * timeMultiplier * (1 + (currentCumValue * 3)); 
             cumMeterUI.value = currentCumValue;
 
             if (currentCumValue < 0)
