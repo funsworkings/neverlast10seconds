@@ -32,14 +32,9 @@ public class BubbleSpawner : MonoBehaviour
                 clone.GetComponent<bubbleScaler>()._cm = cm;
                 clone.transform.forward = worldRot;
                 clone.transform.localScale = Vector3.one * Random.Range(_scaleRange.x, _scaleRange.y);
+                clone.transform.SetParent(transform);
             }
         }
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

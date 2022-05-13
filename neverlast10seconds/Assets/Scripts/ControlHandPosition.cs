@@ -18,13 +18,13 @@ public class ControlHandPosition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
-        
-        //has to move mouse a certain threshold
 
+        //has to move mouse a certain threshold
+        
         RaycastHit hit;
         if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100f))
         {
+            Debug.Log("Mouse Colliding");
             if (hit.collider.CompareTag("Skin"))
             {
                 amountmousemoved = Mathf.Abs(Input.GetAxis("Mouse X")) + Mathf.Abs(Input.GetAxis("Mouse Y"));
@@ -46,11 +46,6 @@ public class ControlHandPosition : MonoBehaviour
             _handTarget.position = Vector3.Lerp(_handTarget.position, hit.point, Time.deltaTime * 15f);
             _handTarget.rotation = Quaternion.Lerp(_handTarget.rotation, Quaternion.Euler(90, 0, 0) * Quaternion.FromToRotation(Vector3.up, hit.normal) * Quaternion.Euler(handDirection), Time.deltaTime * 15f);// * _handTarget.rotation;
 
-            
-           
-            
-            
-            
             
             Shader.SetGlobalVector("_HandPosition", hit.point);
             Shader.SetGlobalVector("_HandDirection", handDirection);
