@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bubble
   - Skin
+  - Tear
   layers:
   - Default
   - TransparentFX
