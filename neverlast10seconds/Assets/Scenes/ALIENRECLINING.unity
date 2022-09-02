@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.6807421, g: 0.6753745, b: 0.8155025, a: 1}
+  m_IndirectSpecularColor: {r: 0.7094722, g: 0.6598315, b: 0.8257467, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1134,7 +1134,7 @@ MonoBehaviour:
   cumNoise: {fileID: 360558943}
   scoreTimer: 0
   timerText: {fileID: 807368225}
-  movementMultiplier: 0.0005
+  movementMultiplier: 0.0007
   timeMultiplier: 0.05
   cumValueText: {fileID: 2062216398}
   currentCumValue: 0
@@ -1164,6 +1164,39 @@ MonoBehaviour:
   cumInterface: {fileID: 616471866}
   computerInterface: {fileID: 95815458}
   scoreInterface: {fileID: 969959657}
+  cumCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.64598644
+      value: 1.2379824
+      inSlope: 4.0463986
+      outSlope: 4.0463986
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.09291189
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &1263543254
 Transform:
   m_ObjectHideFlags: 0
