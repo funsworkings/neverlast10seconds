@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Video;
@@ -14,6 +15,7 @@ namespace cumOS.Scriptables.Editor
 
         private SerializedProperty imageProp;
         private SerializedProperty videoProp;
+        private SerializedProperty gifProp;
 
         private void OnEnable()
         {
@@ -21,6 +23,7 @@ namespace cumOS.Scriptables.Editor
 
             imageProp = serializedObject.FindProperty("images");
             videoProp = serializedObject.FindProperty("clips");
+            gifProp = serializedObject.FindProperty("cumGif");
         }
 
         public override void OnInspectorGUI()
@@ -37,8 +40,10 @@ namespace cumOS.Scriptables.Editor
 
         void LoadAllAssets()
         {
-            List<Sprite> sprites = FindAssetsByType<Sprite>();
-            List<VideoClip> clips = FindAssetsByType<VideoClip>();
+            List<Sprite> sprites = FindAssetsByType<Sprite>( "Assets/Popups");
+            List<VideoClip> clips = FindAssetsByType<VideoClip>( "Assets/Popups");
+            List<Sprite> gif = FindAssetsByType<Sprite>("Assets/Sprites/cumgif");
+            gif.Reverse(); // Reverse gif order
 
             Debug.Log($"Discovered sprites: {sprites.Count} clips: {clips.Count}");
             
@@ -55,12 +60,18 @@ namespace cumOS.Scriptables.Editor
             {
                 videoProp.GetArrayElementAtIndex(i).objectReferenceValue = clips[i];
             }
+            
+            gifProp.arraySize = gif.Count;
+            for (i = 0; i < gif.Count; i++)
+            {
+                gifProp.GetArrayElementAtIndex(i).objectReferenceValue = gif[i];
+            }
         }
         
-        List<T> FindAssetsByType<T>() where T : UnityEngine.Object
+        List<T> FindAssetsByType<T>(string folder) where T : UnityEngine.Object
         {
             List<T> assets = new List<T>();
-            string[] guids = AssetDatabase.FindAssets(string.Format("t:{0}", typeof(T).Name.ToLower()), new string[] { "Assets/Popups" });
+            string[] guids = AssetDatabase.FindAssets(string.Format("t:{0}", typeof(T).Name.ToLower()), new string[] { folder });
             Debug.Log($"{guids.Length} guids");
             for( int i = 0; i < guids.Length; i++ )
             {

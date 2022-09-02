@@ -11,5 +11,7 @@ namespace cumOS.Scriptables
         public List<VideoClip> clips = new List<VideoClip>();
 
         public List<MinigameData> minigames = new List<MinigameData>();
+
+        public List<Sprite> cumGif = new List<Sprite>();
     }
 }
