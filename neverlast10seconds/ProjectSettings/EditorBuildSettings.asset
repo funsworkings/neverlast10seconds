@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HotChicks.unity
     guid: a3aed32c555e4b743aa123a2671ea1a6
+  - enabled: 1
+    path: Assets/Scenes/cumtypebeat.unity
+    guid: f743d8941e88549918f1a7121aa9f1e4
   m_configObjects: {}

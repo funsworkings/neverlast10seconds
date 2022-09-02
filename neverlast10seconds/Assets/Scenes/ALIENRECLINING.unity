@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.7094722, g: 0.6598315, b: 0.8257467, a: 1}
+  m_IndirectSpecularColor: {r: 0.67883974, g: 0.6724167, b: 0.81694835, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1029,6 +1029,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScoreCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3847195367027614907, guid: a8aa233e4702332428e43e4d0b9542ac, type: 3}
+      propertyPath: _meter
+      value: 
+      objectReference: {fileID: 1263543253}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8aa233e4702332428e43e4d0b9542ac, type: 3}
 --- !u!1 &969959657 stripped

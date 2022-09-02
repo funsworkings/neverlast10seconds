@@ -10,6 +10,8 @@ public class RetryButton : MonoBehaviour
 {
     public TMP_Text scoreThisTimeText;
     public TMP_Text scoreBestTimeText;
+
+    [SerializeField] private CumMeter _meter;
     
     void Start()
     {
@@ -18,12 +20,12 @@ public class RetryButton : MonoBehaviour
 
     private void OnEnable()
     {
-        CumMeter.Instance.onPlayerCumEvent.AddListener(CheckHighScore);
+        _meter.onPlayerCumEvent.AddListener(CheckHighScore);
     }
 
     private void OnDisable()
     {
-        CumMeter.Instance.onPlayerCumEvent.RemoveListener(CheckHighScore);
+        _meter.onPlayerCumEvent.RemoveListener(CheckHighScore);
     }
 
     /// <summary>
