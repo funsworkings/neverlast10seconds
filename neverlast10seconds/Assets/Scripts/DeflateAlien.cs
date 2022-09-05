@@ -29,7 +29,7 @@ public class DeflateAlien : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) || deflateTriggered)
         {
-            Deflate();
+            //Deflate();
         }
     }
 

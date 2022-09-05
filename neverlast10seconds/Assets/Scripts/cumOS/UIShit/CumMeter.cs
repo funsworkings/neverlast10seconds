@@ -73,7 +73,7 @@ public class CumMeter : NonInstantiatingSingleton<CumMeter>
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                SetStarted();
+                //SetStarted();
             }
         }
 

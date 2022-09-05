@@ -13,6 +13,7 @@ namespace cumOS.Overworld
         // properties
         [SerializeField] Popup popupPrefab;
         [SerializeField] private PopupDatabase _assetDatabase;
+        [SerializeField] private CumMeter _meter;
 
         [Header("Spawning Settings")]
         public bool spawnPopups = true;
@@ -38,12 +39,12 @@ namespace cumOS.Overworld
 
         private void OnEnable()
         {
-            CumMeter.Instance.onBeginMasturbationEvent.AddListener(SetRandomPopupTimer);
+            _meter.onBeginMasturbationEvent.AddListener(SetRandomPopupTimer);
         }
 
         private void OnDisable()
         {
-            CumMeter.Instance.onBeginMasturbationEvent.RemoveListener(SetRandomPopupTimer);
+            if(_meter) _meter.onBeginMasturbationEvent.RemoveListener(SetRandomPopupTimer);
         }
 
         private void Update()

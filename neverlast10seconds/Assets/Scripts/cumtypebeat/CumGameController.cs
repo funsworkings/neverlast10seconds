@@ -95,6 +95,7 @@ namespace cumtypebeat
 
         IEnumerator GetReadyRoutine()
         {
+            instructionText.text = "press S P A C E B A R to match beat";
             while (!Input.GetKeyUp(KeyCode.Space))
             {
                 yield return null;
@@ -108,7 +109,7 @@ namespace cumtypebeat
             {
                 countdown -= Time.unscaledDeltaTime;
                 instructionText.text = Mathf.CeilToInt(countdown).ToString();
-                
+
                 yield return null;
             }
 

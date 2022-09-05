@@ -25,7 +25,7 @@ public class RetryButton : MonoBehaviour
 
     private void OnDisable()
     {
-        _meter.onPlayerCumEvent.RemoveListener(CheckHighScore);
+        if(_meter) _meter.onPlayerCumEvent.RemoveListener(CheckHighScore);
     }
 
     /// <summary>
@@ -33,7 +33,7 @@ public class RetryButton : MonoBehaviour
     /// </summary>
     public void SetScoreUI()
     {
-        scoreThisTimeText.text = "you lasted: " + CumMeter.Instance.scoreTimer;
+        scoreThisTimeText.text = "you lasted: " + _meter.scoreTimer;
         scoreBestTimeText.text = "best time: " +  PlayerPrefs.GetFloat("highScore");
     }
 
@@ -43,7 +43,7 @@ public class RetryButton : MonoBehaviour
         if (PlayerPrefs.HasKey("highScore"))
         {
             float highScore = PlayerPrefs.GetFloat("highScore");
-            if (CumMeter.Instance.scoreTimer > highScore)
+            if (_meter.scoreTimer > highScore)
             {
                 SaveHighScore();
             }
@@ -62,7 +62,7 @@ public class RetryButton : MonoBehaviour
     /// </summary>
     public void SaveHighScore()
     {
-        PlayerPrefs.SetFloat("highScore", CumMeter.Instance.scoreTimer);
+        PlayerPrefs.SetFloat("highScore", _meter.scoreTimer);
         SetScoreUI();
     }
 

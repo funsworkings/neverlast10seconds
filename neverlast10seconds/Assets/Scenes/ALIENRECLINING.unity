@@ -1342,6 +1342,7 @@ MonoBehaviour:
   itemsRoot: {fileID: 0}
   popupPrefab: {fileID: 4509087774093246653, guid: 8af1d3546a69345b4a8969abe1446c4b, type: 3}
   _assetDatabase: {fileID: 11400000, guid: 9ffdadc13883e433dae0ca0f75ad64e7, type: 2}
+  _meter: {fileID: 1263543253}
   spawnPopups: 1
   popupTimer: 0
   popupTimerTotal: 0
