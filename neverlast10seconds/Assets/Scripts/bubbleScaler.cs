@@ -12,6 +12,7 @@ public class bubbleScaler : MonoBehaviour
     private float blendOffset;
     private float blendSpeed;
     private Vector3 scaleCache;
+    public int meshIndex = -1;
     float timer;
     public CumMeter _cm;
     // Start is called before the first frame update

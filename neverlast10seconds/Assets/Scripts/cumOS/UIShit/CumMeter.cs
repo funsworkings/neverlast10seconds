@@ -12,9 +12,6 @@ public class CumMeter : NonInstantiatingSingleton<CumMeter>
     public float scoreTimer;
     public TMP_Text timerText;
 
-    public float movementMultiplier;
-    public float timeMultiplier;
-
     public TMP_Text cumValueText; 
 
     // impl for NonInstantiatingSingleton
@@ -22,8 +19,18 @@ public class CumMeter : NonInstantiatingSingleton<CumMeter>
     {
         return this;
     }
-    
-    public float currentCumValue;
+
+    private float m_cumValue = 0f;
+    public float currentCumValue
+    {
+        get => m_cumValue;
+        set
+        {
+            m_cumValue = value;
+            cumInterval = Mathf.Clamp01(m_cumValue / amountToCumAt);
+        }
+    }
+    public float cumInterval;
     public float amountToCumAt = 1;
 
     public Slider cumMeterUI;
@@ -40,6 +47,10 @@ public class CumMeter : NonInstantiatingSingleton<CumMeter>
     public AnimationCurve cumCurve;
 
     private float cumRate;
+    
+    [Header("Difficulty")]
+    public float movementMultiplier;
+    public float timeMultiplier;
     
     void Start()
     {

@@ -1138,10 +1138,8 @@ MonoBehaviour:
   cumNoise: {fileID: 360558943}
   scoreTimer: 0
   timerText: {fileID: 807368225}
-  movementMultiplier: 0.0007
-  timeMultiplier: 0.05
   cumValueText: {fileID: 2062216398}
-  currentCumValue: 0
+  cumInterval: 0
   amountToCumAt: 1
   cumMeterUI: {fileID: 1861539228}
   hasStarted: 0
@@ -1201,6 +1199,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  movementMultiplier: 0.0007
+  timeMultiplier: 0.05
 --- !u!4 &1263543254
 Transform:
   m_ObjectHideFlags: 0
@@ -1997,6 +1997,10 @@ PrefabInstance:
       propertyPath: cm
       value: 
       objectReference: {fileID: 1263543253}
+    - target: {fileID: 8501619647061815757, guid: 2985a33d2123dd74da7cfd8d3d699ef0, type: 3}
+      propertyPath: bubbleCount
+      value: 600
+      objectReference: {fileID: 0}
     - target: {fileID: 9135399906430259940, guid: 2985a33d2123dd74da7cfd8d3d699ef0, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9459091
