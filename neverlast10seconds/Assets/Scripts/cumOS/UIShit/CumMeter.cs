@@ -51,6 +51,7 @@ public class CumMeter : NonInstantiatingSingleton<CumMeter>
     [Header("Difficulty")]
     public float movementMultiplier;
     public float timeMultiplier;
+    public AnimationCurve closenessMultiplier;
     
     void Start()
     {
@@ -92,7 +93,7 @@ public class CumMeter : NonInstantiatingSingleton<CumMeter>
         {
             scoreTimer += Time.deltaTime;
             currentCumValue -= (ControlHandPosition.amountmousemoved * movementMultiplier);
-            currentCumValue += Time.deltaTime * timeMultiplier * (1 + (currentCumValue * 3)); 
+            currentCumValue += Time.deltaTime * timeMultiplier * (1f + closenessMultiplier.Evaluate(currentCumValue)); 
             cumMeterUI.value = currentCumValue;
 
             if (currentCumValue < 0)
