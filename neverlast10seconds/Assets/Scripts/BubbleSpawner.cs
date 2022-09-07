@@ -61,7 +61,7 @@ public class BubbleSpawner : MonoBehaviour
         {
             // Eval cum state
 
-            int t = Mathf.RoundToInt(cm.cumInterval * bubbleCount); Debug.LogWarning($"prev: {threshold} curr: {t}");
+            int t = Mathf.RoundToInt(cm.cumInterval * bubbleCount); 
             int t_diff = t - threshold;
             threshold = t;
             
